@@ -468,16 +468,16 @@ const DiscoverPage = () => {
         
             {/* DISCOVER Text - Upper Left Quadrant */}
             <div className="absolute top-32 left-16 z-20 text-white">
-              <motion.div
+          <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-              >
+          >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none" style={{ fontFamily: 'Arial, sans-serif', fontWeight: '700', letterSpacing: '0.02em' }}>
-                  DISCOVER
-                </h1>
-              </motion.div>
-            </div>
+              DISCOVER
+            </h1>
+          </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
         <motion.div

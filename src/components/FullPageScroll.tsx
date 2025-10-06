@@ -33,7 +33,7 @@ const FullPageScroll = ({ sections }: FullPageScrollProps) => {
       });
 
       // Create scroll-snap effect for each section
-      sectionsRef.current.forEach((section, index) => {
+      sectionsRef.current.forEach((section) => {
         if (!section) return;
 
         ScrollTrigger.create({

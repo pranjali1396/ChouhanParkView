@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Building, Bed, Bath, Square, ArrowRight } from 'lucide-react';
+import { Bed, Bath, Square, ArrowRight } from 'lucide-react';
 
 const TowerCollection = () => {
   const ref = useRef(null);

@@ -58,7 +58,7 @@ const AboutSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
         >
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4">
                 <stat.icon className="w-8 h-8 text-white" />
@@ -85,10 +85,10 @@ const AboutSection = () => {
               Our Story
             </h3>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Founded in 1972, Onni Group has grown from a small family business to one of North America's most respected real estate development companies. Our commitment to quality, innovation, and community building has earned us a reputation for excellence.
+              Founded in 1972, Onni Group has grown from a small family business to one of North America&apos;s most respected real estate development companies. Our commitment to quality, innovation, and community building has earned us a reputation for excellence.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
-              With projects spanning across major metropolitan areas, we've created thousands of homes and commercial spaces that have become integral parts of their communities. Our approach combines visionary design with practical functionality.
+              With projects spanning across major metropolitan areas, we&apos;ve created thousands of homes and commercial spaces that have become integral parts of their communities. Our approach combines visionary design with practical functionality.
             </p>
             <button className="btn-primary">
               Learn More About Our History

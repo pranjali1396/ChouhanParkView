@@ -9,7 +9,7 @@ interface SectionTransitionProps {
 }
 
 // Individual section component with GSAP entrance animations
-const SectionTransition = ({ sectionId, onTransitionComplete }: SectionTransitionProps) => {
+const SectionTransition = ({ onTransitionComplete }: SectionTransitionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

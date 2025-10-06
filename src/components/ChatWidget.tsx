@@ -33,7 +33,7 @@ const ChatWidget = () => {
             <div className="space-y-4">
               <div className="bg-blue-100 p-3 rounded-lg">
                 <p className="text-sm text-gray-700">
-                  Hi! I'm here to help you with any questions about Chouhan Park View. How can I assist you today?
+                  Hi! I&apos;m here to help you with any questions about Chouhan Park View. How can I assist you today?
                 </p>
               </div>
             </div>

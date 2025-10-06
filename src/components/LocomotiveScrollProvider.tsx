@@ -35,10 +35,11 @@ const LocomotiveScrollProvider = ({ children, onScrollToMenu }: LocomotiveScroll
         smooth: true,
         breakpoint: 1024
       }
-    });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any);
 
     // Listen for scroll events
-    locomotiveScrollRef.current.on('scroll', (args: any) => {
+    locomotiveScrollRef.current.on('scroll', (args: { scroll: { y: number } }) => {
       // Check if scrolled past first section
       if (args.scroll.y > window.innerHeight * 0.5 && onScrollToMenu) {
         onScrollToMenu();
@@ -61,7 +62,7 @@ const LocomotiveScrollProvider = ({ children, onScrollToMenu }: LocomotiveScroll
   // Expose scrollTo method globally
   useEffect(() => {
     if (locomotiveScrollRef.current) {
-      (window as any).locomotiveScroll = locomotiveScrollRef.current;
+      (window as unknown as { locomotiveScroll: typeof locomotiveScrollRef.current }).locomotiveScroll = locomotiveScrollRef.current;
     }
   }, []);
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Menu } from 'lucide-react';
 
 interface NavigationProps {
@@ -8,16 +9,7 @@ interface NavigationProps {
 }
 
 const Navigation = ({ onMenuClick }: NavigationProps) => {
-  const [isScrolled, setIsScrolled] = React.useState(false);
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#3d4d5c', boxShadow: 'none' }}>
@@ -25,14 +17,14 @@ const Navigation = ({ onMenuClick }: NavigationProps) => {
         <div className="flex items-center justify-between h-20">
           {/* Left Side - Logo */}
           <div className="flex items-center">
-            <a href="/" className="flex flex-col leading-tight">
+            <Link href="/" className="flex flex-col leading-tight">
               <span className="font-bold text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '16px', letterSpacing: '0.12em' }}>
                 CHOUHAN
               </span>
               <span className="font-bold text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '16px', letterSpacing: '0.12em' }}>
                 PARK VIEW
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Center - Contact Info (Desktop) */}

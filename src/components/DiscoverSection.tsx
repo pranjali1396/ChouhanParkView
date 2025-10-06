@@ -50,7 +50,7 @@ const DiscoverSection = () => {
             Discover Chouhan Park View
           </h2>
           <p className="text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto">
-            Experience the perfect blend of urban convenience and natural beauty in one of Burnaby's most sought-after locations.
+            Experience the perfect blend of urban convenience and natural beauty in one of Burnaby&apos;s most sought-after locations.
           </p>
         </motion.div>
 

@@ -99,7 +99,7 @@ const CommercialSection = () => {
           <Building2 className="w-16 h-16 mx-auto mb-6" />
           <h3 className="text-3xl font-bold mb-4">Investment Opportunity</h3>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Be part of Burnaby's most exciting commercial development. Limited spaces available for lease and purchase.
+            Be part of Burnaby&apos;s most exciting commercial development. Limited spaces available for lease and purchase.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">

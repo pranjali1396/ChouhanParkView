@@ -85,7 +85,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
               <p>&copy; {currentYear} Chouhan Park View. All rights reserved.</p>
-              <p className="mt-1">Rendering is artist's interpretation only. Please speak with an Onni Representative for more details. E.&O.E.</p>
+              <p className="mt-1">Rendering is artist&apos;s interpretation only. Please speak with an Onni Representative for more details. E.&O.E.</p>
             </div>
             <div className="flex items-center space-x-4 text-sm">
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
