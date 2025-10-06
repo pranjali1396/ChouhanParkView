@@ -130,7 +130,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
 
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col px-8 pt-24 pb-20 md:flex-row md:items-start md:justify-start md:pl-72 md:pt-24 md:pb-20">
+      <div className="relative z-10 min-h-screen flex flex-col px-8 pt-32 pb-16 md:flex-row md:items-start md:justify-start md:pl-72 md:pt-24 md:pb-20">
         {/* Main Navigation Menu */}
         <div className="flex-1 md:flex-none">
           <motion.div
@@ -197,13 +197,13 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
         </div>
 
         {/* Mobile-only bottom content */}
-        <div className="md:hidden">
+        <div className="md:hidden mt-8">
           {/* Chouhan Group */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-2 mb-2"
+            className="mb-1"
           >
             <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif' }}>
               <div className="font-bold" style={{ fontSize: '14px', letterSpacing: '0.05em' }}>CHOUHAN</div>
@@ -211,13 +211,12 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             </div>
           </motion.div>
 
-
           {/* Language Selector */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mb-3"
+            className="mb-2"
           >
             <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
               <span className="font-bold" style={{ color: '#5dade2' }}>EN</span>
@@ -246,10 +245,10 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-white mb-4 ml-6"
+            className="text-white mb-2 ml-6"
             style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '10px', lineHeight: '1.4' }}
           >
-            <p className="mb-2">Rendering is artist&apos;s interpretation only. Please speak with a Chouhan Representative for more details. E.&O.E.</p>
+            <p className="mb-1">Rendering is artist&apos;s interpretation only. Please speak with a Chouhan Representative for more details. E.&O.E.</p>
             <p>
               <a href="#" className="hover:opacity-70 transition-opacity duration-300 underline text-white">
                 Privacy Policy
