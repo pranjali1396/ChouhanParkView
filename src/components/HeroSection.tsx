@@ -125,7 +125,7 @@ const HeroSection = () => {
         >
           <p className="text-base md:text-lg font-light leading-relaxed text-left" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontWeight: '300' }}>
             The most anticipated masterplanned community<br />
-            in Burnaby. Final Homes in Phase 1 Now Selling!
+            in Bhilai. Final Homes in Phase 1 Now Selling!
           </p>
         </motion.div>
 
