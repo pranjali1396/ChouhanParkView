@@ -51,7 +51,7 @@ const TransitPage = () => {
             {
               icon: Bus,
               title: "Bus Routes",
-              description: "Multiple bus routes serving all major destinations in Burnaby and surrounding areas.",
+              description: "Multiple bus routes serving all major destinations in Bhilai and surrounding areas.",
               time: "1 min walk"
             },
             {

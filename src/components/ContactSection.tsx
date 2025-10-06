@@ -45,7 +45,7 @@ const ContactSection = () => {
     {
       icon: MapPin,
       title: "Sales Center",
-      details: "1234 Burnaby Street, Burnaby, BC",
+      details: "1234 Bhilai Street, Bhilai, India",
       description: "Visit our sales center"
     },
     {

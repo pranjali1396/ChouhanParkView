@@ -13,7 +13,7 @@ const DiscoverSection = () => {
     {
       icon: MapPin,
       title: "Prime Location",
-      description: "Strategically located in the heart of Burnaby with easy access to major highways and transit."
+      description: "Strategically located in the heart of Bhilai with easy access to major highways and transit."
     },
     {
       icon: TreePine,
@@ -50,7 +50,7 @@ const DiscoverSection = () => {
             Discover Chouhan Park View
           </h2>
           <p className="text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto">
-            Experience the perfect blend of urban convenience and natural beauty in one of Burnaby&apos;s most sought-after locations.
+            Experience the perfect blend of urban convenience and natural beauty in one of Bhilai&apos;s most sought-after locations.
           </p>
         </motion.div>
 

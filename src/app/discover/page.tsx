@@ -84,7 +84,7 @@ const DiscoverPage = () => {
     {
       icon: MapPin,
       title: "Prime Location",
-      description: "Strategically located in the heart of Burnaby with easy access to major highways and transit."
+      description: "Strategically located in the heart of Bhilai with easy access to major highways and transit."
     },
     {
       icon: TreePine,
@@ -536,33 +536,68 @@ const DiscoverPage = () => {
 
       {/* Tabbed Content Section */}
       <section className="min-h-screen bg-slate-800 flex flex-col relative">
-        {/* Header */}
-        <div className="pt-6 pb-4">
+        {/* Header - Show for all tabs */}
+        {(
+          <div className="w-full bg-gray-700 py-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between">
               {/* Logo */}
-              <div className="text-white">
-                <div className="text-2xl font-bold">CHOUHAN</div>
-                <div className="text-lg">GROUP</div>
+                <div className="flex items-center">
+                  <div className="flex flex-col leading-tight">
+                    <span className="font-bold text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '16px', letterSpacing: '0.12em' }}>
+                      CHOUHAN
+                    </span>
+                    <span className="font-bold text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '16px', letterSpacing: '0.12em' }}>
+                      PARK VIEW
+                    </span>
+                  </div>
               </div>
               
-              {/* Header Navigation */}
-              <div className="flex items-center space-x-6 text-white text-sm">
-                <span>CHOUHANHOUSING@GMAIL.COM</span>
-                <span>9109104005</span>
-                <div className="flex space-x-2">
-                  <span className="text-blue-400">EN</span>
-                  <span>|</span>
-                  <span>हिंदी</span>
+                {/* Center - Contact Info (Desktop) */}
+                <div className="hidden lg:flex items-center space-x-5">
+                  <span className="text-white hover:opacity-80 transition-opacity" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
+                    CHOUHANHOUSING@GMAIL.COM
+                  </span>
+                  <span className="text-white/40" style={{ fontSize: '14px' }}>|</span>
+                  <span className="text-white hover:opacity-80 transition-opacity" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
+                    9109104005
+                  </span>
                 </div>
-                <button className="bg-purple-600 text-white px-4 py-2 rounded text-sm">
+                
+                {/* Right Side - Buttons */}
+                <div className="flex items-center space-x-4">
+                  {/* Desktop - Language and Buttons */}
+                  <div className="hidden md:flex items-center space-x-3 text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif' }}>
+                    <span className="font-bold cursor-pointer hover:opacity-80 transition-opacity" style={{ color: '#5dade2', fontSize: '14px', letterSpacing: '0.05em' }}>EN</span>
+                    <span className="text-white/40" style={{ fontSize: '14px' }}>|</span>
+                    <span className="cursor-pointer hover:opacity-80 transition-opacity" style={{ fontSize: '14px', letterSpacing: '0.05em' }}>हिंदी</span>
+                  </div>
+                  <button className="hidden md:block px-6 py-2.5 text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: '#6b46c1', fontFamily: 'Gotham, Arial, sans-serif', fontSize: '13px', fontWeight: '700', letterSpacing: '0.1em' }}>
+                    REGISTER
+                  </button>
+                  <button className="hidden md:block px-6 py-2.5 text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: '#3d4d5c', fontFamily: 'Gotham, Arial, sans-serif', fontSize: '13px', fontWeight: '700', letterSpacing: '0.1em', border: '1px solid rgba(255,255,255,0.2)' }}>
+                    MENU
+                  </button>
+
+                  {/* Mobile - REGISTER button and hamburger menu */}
+                  <div className="md:hidden flex items-center space-x-3">
+                    <button className="px-4 py-2 text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: '#6b46c1', fontFamily: 'Gotham, Arial, sans-serif', fontSize: '12px', fontWeight: '700', letterSpacing: '0.1em' }}>
                   REGISTER
                 </button>
-                <span>MENU</span>
+                    <button className="text-white hover:text-gray-300 focus:outline-none p-1">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
+        
+        {/* Spacing after header - 40px */}
+        <div style={{ height: '40px' }}></div>
 
         {/* Navigation Tabs */}
         <div className="pb-8">
@@ -711,7 +746,7 @@ const DiscoverPage = () => {
               Why Choose Chouhan Park View
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Experience the perfect blend of urban convenience and natural beauty in one of Burnaby&apos;s most sought-after locations.
+              Experience the perfect blend of urban convenience and natural beauty in one of Bhilai&apos;s most sought-after locations.
             </p>
           </motion.div>
 
@@ -746,7 +781,7 @@ const DiscoverPage = () => {
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-4">Chouhan Park View</h3>
             <p className="text-gray-400 mb-8">
-              The most anticipated masterplanned community in Burnaby
+              The most anticipated masterplanned community in Bhilai
             </p>
             <div className="flex justify-center space-x-8 text-sm text-gray-400">
               <span>Vision</span>

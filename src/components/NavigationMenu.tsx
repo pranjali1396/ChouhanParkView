@@ -94,7 +94,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
         
         {/* Mobile Logo without Border */}
         <div className="md:hidden">
-          <h1 className="text-white text-base font-bold tracking-widest" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.1em' }}>
+          <h1 className="text-white text-xl font-bold tracking-widest" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.1em' }}>
             <div>CHOUHAN</div>
             <div>PARK VIEW</div>
           </h1>
@@ -105,32 +105,32 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
       <div className="absolute top-8 right-8 z-20">
         <div className="flex items-center space-x-3">
           {/* Mobile Social Media Icons */}
-          <div className="md:hidden flex items-center space-x-3">
-            <a href="#" className="bg-white rounded-full p-2 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
-              <Facebook className="w-5 h-5 text-black" fill="currentColor" strokeWidth={0} />
+          <div className="md:hidden flex items-center space-x-4">
+            <a href="#" className="bg-white rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
+              <Facebook className="w-7 h-7 text-black" fill="currentColor" strokeWidth={0} />
             </a>
-            <a href="#" className="bg-white rounded-full p-2 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
-              <Twitter className="w-5 h-5 text-black" fill="currentColor" strokeWidth={0} />
+            <a href="#" className="bg-white rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
+              <Twitter className="w-7 h-7 text-black" fill="currentColor" strokeWidth={0} />
             </a>
-            <a href="#" className="bg-white rounded-full p-2 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
-              <Instagram className="w-5 h-5 text-black" strokeWidth={2} />
+            <a href="#" className="bg-white rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
+              <Instagram className="w-7 h-7 text-black" strokeWidth={2} />
             </a>
           </div>
           
           {/* Close Button */}
         <button
           onClick={onClose}
-          className="text-white hover:text-gray-300 transition-colors duration-300 p-2"
+          className="text-white hover:text-gray-300 transition-colors duration-300 p-3"
           aria-label="Close menu"
         >
-          <X className="w-8 h-8" strokeWidth={2} />
+          <X className="w-10 h-10" strokeWidth={2} />
         </button>
         </div>
       </div>
 
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col px-8 pt-24 pb-20 md:flex-row md:items-start md:justify-start md:pl-72 md:pt-24 md:pb-20">
+      <div className="relative z-10 min-h-screen flex flex-col px-8 pt-32 pb-16 md:flex-row md:items-start md:justify-start md:pl-72 md:pt-24 md:pb-20">
         {/* Main Navigation Menu */}
         <div className="flex-1 md:flex-none">
           <motion.div
@@ -151,8 +151,8 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
                 style={{ fontFamily: 'Gotham, Arial, sans-serif' }}
               >
                 <span className="inline-flex items-baseline">
-                  <span className="text-white group-hover:text-blue-400 font-light italic mr-3 md:mr-3 transition-colors duration-300 text-xs md:text-xs" style={{ fontWeight: '300', fontStyle: 'italic' }}>{item.number}</span>
-                  <span className="font-bold group-hover:text-blue-400 transition-colors duration-300 relative text-2xl md:text-4xl" style={{ fontWeight: '700', letterSpacing: '0' }}>
+                  <span className="text-white group-hover:text-blue-400 font-light italic mr-4 md:mr-3 transition-colors duration-300 text-base md:text-xs" style={{ fontWeight: '300', fontStyle: 'italic' }}>{item.number}</span>
+                  <span className="font-bold group-hover:text-blue-400 transition-colors duration-300 relative text-4xl md:text-4xl" style={{ fontWeight: '700', letterSpacing: '0' }}>
                     {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
                   </span>
@@ -171,8 +171,8 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
               style={{ fontFamily: 'Gotham, Arial, sans-serif' }}
             >
               <span className="inline-flex items-baseline">
-                <span className="text-white group-hover:text-blue-400 font-light italic mr-3 md:hidden transition-colors duration-300 text-xs md:text-xs" style={{ fontWeight: '300', fontStyle: 'italic' }}>07</span>
-                <span className="font-bold group-hover:text-blue-400 transition-colors duration-300 relative text-2xl md:text-4xl" style={{ fontWeight: '700', letterSpacing: '0' }}>
+                <span className="text-white group-hover:text-blue-400 font-light italic mr-4 md:hidden transition-colors duration-300 text-base md:text-xs" style={{ fontWeight: '300', fontStyle: 'italic' }}>07</span>
+                <span className="font-bold group-hover:text-blue-400 transition-colors duration-300 relative text-4xl md:text-4xl" style={{ fontWeight: '700', letterSpacing: '0' }}>
                   {contactItem.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
                 </span>
@@ -197,27 +197,26 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
         </div>
 
         {/* Mobile-only bottom content */}
-        <div className="md:hidden">
+        <div className="md:hidden mt-8">
           {/* Chouhan Group */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-2 mb-2"
+            className="mb-2"
           >
             <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif' }}>
-              <div className="font-bold" style={{ fontSize: '14px', letterSpacing: '0.05em' }}>CHOUHAN</div>
-              <div className="font-light" style={{ fontSize: '10px', letterSpacing: '0.15em' }}>GROUP</div>
+              <div className="font-bold" style={{ fontSize: '18px', letterSpacing: '0.05em' }}>CHOUHAN</div>
+              <div className="font-light" style={{ fontSize: '12px', letterSpacing: '0.15em' }}>GROUP</div>
             </div>
           </motion.div>
-
 
           {/* Language Selector */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mb-3"
+            className="mb-2"
           >
             <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
               <span className="font-bold" style={{ color: '#5dade2' }}>EN</span>
@@ -246,10 +245,10 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-white mb-4 ml-6"
+            className="text-white mb-2 ml-6"
             style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '10px', lineHeight: '1.4' }}
           >
-            <p className="mb-2">Rendering is artist&apos;s interpretation only. Please speak with a Chouhan Representative for more details. E.&O.E.</p>
+            <p className="mb-1">Rendering is artist&apos;s interpretation only. Please speak with a Chouhan Representative for more details. E.&O.E.</p>
             <p>
               <a href="#" className="hover:opacity-70 transition-opacity duration-300 underline text-white">
                 Privacy Policy

@@ -18,7 +18,7 @@ const LocationPage = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'Arial, sans-serif' }}>
             <span className="block">PRIME</span>
             <span className="block">LOCATION</span>
-            <span className="block">BURNABY</span>
+            <span className="block">BHILAI</span>
           </h1>
         </motion.div>
 
@@ -30,7 +30,7 @@ const LocationPage = () => {
           className="max-w-4xl mx-auto text-center mb-16"
         >
           <p className="text-white text-lg md:text-xl leading-relaxed" style={{ fontFamily: 'Arial, sans-serif' }}>
-            Strategically positioned in the heart of Burnaby, offering unparalleled access to everything the city has to offer.
+            Strategically positioned in the heart of Bhilai, offering unparalleled access to everything the city has to offer.
           </p>
         </motion.div>
 
@@ -45,7 +45,7 @@ const LocationPage = () => {
             {
               icon: MapPin,
               title: "Central Location",
-              description: "Perfectly positioned in the heart of Burnaby with easy access to all major destinations."
+              description: "Perfectly positioned in the heart of Bhilai with easy access to all major destinations."
             },
             {
               icon: Train,

@@ -19,7 +19,7 @@ const Footer = () => {
           >
             <h3 className="text-2xl font-bold mb-4">Chouhan Park View</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              The most anticipated masterplanned community in Burnaby. Experience luxury living with world-class amenities and breathtaking views.
+              The most anticipated masterplanned community in Bhilai. Experience luxury living with world-class amenities and breathtaking views.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
@@ -52,7 +52,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 text-blue-400 mr-3" />
-                <span className="text-gray-300">Burnaby, BC</span>
+                <span className="text-gray-300">Bhilai, India</span>
               </div>
             </div>
           </motion.div>
