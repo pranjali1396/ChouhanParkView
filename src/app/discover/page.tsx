@@ -336,9 +336,12 @@ const DiscoverPage = () => {
   // Handle touch events
   useEffect(() => {
     let touchStartY = 0;
+    let touchStartTime = 0;
 
     const handleTouchStart = (e: TouchEvent) => {
       touchStartY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+      console.log('Touch start:', touchStartY);
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
@@ -346,17 +349,30 @@ const DiscoverPage = () => {
       
       const touchEndY = e.changedTouches[0].clientY;
       const touchDelta = touchStartY - touchEndY;
+      const touchDuration = Date.now() - touchStartTime;
       
-      if (Math.abs(touchDelta) > 50) {
+      console.log('Touch end:', {
+        touchStartY,
+        touchEndY,
+        touchDelta,
+        touchDuration,
+        currentSection,
+        isTransitioning
+      });
+      
+      // More sensitive threshold for mobile (reduced from 50 to 30)
+      if (Math.abs(touchDelta) > 30 && touchDuration < 1000) {
         if (touchDelta > 0) {
+          console.log('Swipe down detected, current section:', currentSection);
           if (currentSection === 'hero') {
             handleScrollToContent();
           } else if (currentSection === 'content') {
             handleScrollToMenu();
           }
         } else if (touchDelta < 0 && !menuOpenedViaButtonRef.current) {
+          console.log('Swipe up detected, current section:', currentSection);
           if (currentSection === 'menu') {
-          handleScrollToMain();
+            handleScrollToMain();
           } else if (currentSection === 'content') {
             handleScrollToHero();
           }
@@ -364,17 +380,29 @@ const DiscoverPage = () => {
       }
     };
 
+    const handleTouchMove = (e: TouchEvent) => {
+      // Prevent default scrolling behavior to avoid conflicts
+      if (isInitialized && !isTransitioning) {
+        e.preventDefault();
+      }
+    };
+
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
     
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [currentSection, isTransitioning, isInitialized, handleScrollToContent, handleScrollToMenu, handleScrollToMain, handleScrollToHero]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
+    <div 
+      className="relative w-full h-screen overflow-hidden bg-black"
+      style={{ touchAction: 'pan-y' }}
+    >
       {/* Menu Page */}
       {showMenu && (
       <div 
@@ -391,7 +419,7 @@ const DiscoverPage = () => {
       <div 
         ref={mainPageRef}
         className="fixed inset-0 overflow-hidden"
-        style={{ zIndex: 20, height: '200vh' }}
+        style={{ zIndex: 20, height: '200vh', touchAction: 'pan-y' }}
       >
         <div className="min-h-[200vh] bg-white">
           <Navigation onMenuClick={() => handleScrollToMenu(true)} />
