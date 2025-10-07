@@ -44,7 +44,7 @@ const DiscoverPage = () => {
       },
       {
         threshold: 0,
-        rootMargin: '-80px 0px 0px 0px' // Account for top navigation height (80px for both mobile and desktop)
+        rootMargin: '0px 0px 0px 0px' // No margin - sticky when navigation reaches top of viewport
       }
     );
 
