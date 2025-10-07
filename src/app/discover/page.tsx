@@ -39,7 +39,7 @@ const DiscoverPage = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Make sticky on both mobile and desktop
+        // Make sticky on both mobile and desktop, but only after hero image
         setIsSticky(!entry.isIntersecting);
       },
       {
