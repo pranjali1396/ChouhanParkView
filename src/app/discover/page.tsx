@@ -34,42 +34,24 @@ const DiscoverPage = () => {
 
   // Use Intersection Observer for stable sticky detection
   useEffect(() => {
-    const navigation = navigationRef.current;
-    if (!navigation) return;
-
-    let timeoutId: NodeJS.Timeout;
-    let lastStickyState = false;
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Clear previous timeout to debounce
-        clearTimeout(timeoutId);
-        
-        timeoutId = setTimeout(() => {
-          const rect = entry.boundingClientRect;
-          const shouldBeSticky = rect.top <= 10; // Small threshold to prevent flickering
-          
-          // Use hysteresis to prevent flickering
-          if (shouldBeSticky && !lastStickyState) {
-            setIsSticky(true);
-            lastStickyState = true;
-          } else if (rect.top > 30 && lastStickyState) {
-            setIsSticky(false);
-            lastStickyState = false;
-          }
-        }, 16); // 60fps debounce
+        // Make sticky when sentinel goes out of view (after hero image)
+        setIsSticky(!entry.isIntersecting);
       },
       {
         threshold: 0,
-        rootMargin: '0px 0px 0px 0px'
+        rootMargin: '-80px 0px 0px 0px' // Account for top navigation height
       }
     );
 
-    observer.observe(navigation);
+    observer.observe(sentinel);
 
     return () => {
       observer.disconnect();
-      clearTimeout(timeoutId);
     };
   }, []);
 
