@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const VisionPage = () => {
   return (
-    <div className="w-full px-6 sm:px-8 md:px-0">
+    <div className="w-full">
       
       {/* Main Content */}
       <div className="w-full">
@@ -27,7 +27,7 @@ const VisionPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto text-center mb-12 md:mb-16 px-6 sm:px-8"
+          className="max-w-4xl mx-auto text-center mb-12 md:mb-16"
         >
           <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed" style={{ fontFamily: 'Arial, sans-serif' }}>
             Chouhan Park View is a magnificent location offering homes, shops, dining, and office space within the Bhilai community. 
@@ -40,7 +40,7 @@ const VisionPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 px-6 sm:px-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
         >
           {[
             {

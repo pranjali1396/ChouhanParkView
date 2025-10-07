@@ -653,7 +653,7 @@ const DiscoverPage = () => {
 
         {/* Tab Content */}
         <div className="flex-1 flex flex-col justify-center">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 py-8 md:py-12">
+          <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-8 py-8 md:py-12">
             {activeTab === 'VISION' && <VisionPage />}
             {activeTab === 'LOCATION' && <LocationPage />}
             {activeTab === 'TRANSIT' && <TransitPage />}
