@@ -39,7 +39,13 @@ const DiscoverPage = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsSticky(!entry.isIntersecting);
+        // Only make sticky on desktop (md and above)
+        const isDesktop = window.innerWidth >= 768;
+        if (isDesktop) {
+          setIsSticky(!entry.isIntersecting);
+        } else {
+          setIsSticky(false); // Always false on mobile
+        }
       },
       {
         threshold: 0,
@@ -125,7 +131,7 @@ const DiscoverPage = () => {
         {/* Sentinel element for intersection observer */}
         <div ref={sentinelRef} className="h-0 w-full"></div>
 
-        {/* Navigation Section - Becomes fixed when scrolling */}
+        {/* Navigation Section - Becomes fixed when scrolling (desktop only) */}
         <section 
           ref={navigationRef}
           className={`navigation-section bg-gray-800 shadow-lg transition-all duration-300 ${
