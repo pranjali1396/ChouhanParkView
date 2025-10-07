@@ -271,9 +271,8 @@ const DiscoverPage = () => {
   // Handle scroll events with improved logic
   useEffect(() => {
     let lastScrollTime = 0;
-    const scrollThreshold = 50; // Less sensitive for better content scrolling
+    const scrollThreshold = 100; // Much less sensitive for better content scrolling
     let accumulatedDelta = 0;
-    let isScrollingInContent = false;
 
     const handleWheel = (e: WheelEvent) => {
       if (isTransitioning) {
@@ -291,21 +290,8 @@ const DiscoverPage = () => {
 
       lastScrollTime = currentTime;
 
-      // Check if we're scrolling within tab content
-      const tabContainer = document.querySelector('.tab-content-container');
-      if (tabContainer) {
-        const containerRect = tabContainer.getBoundingClientRect();
-        const isInContentArea = containerRect.top <= 0 && containerRect.bottom >= window.innerHeight;
-        
-        if (isInContentArea) {
-          // Allow normal scrolling within content
-          isScrollingInContent = true;
-          return;
-        }
-      }
-
-      // Only handle section transitions when not scrolling in content
-      if (Math.abs(accumulatedDelta) > scrollThreshold && !isScrollingInContent) {
+      // Only handle section transitions, not content scrolling
+      if (Math.abs(accumulatedDelta) > scrollThreshold) {
         e.preventDefault();
         accumulatedDelta = 0;
         
@@ -314,10 +300,10 @@ const DiscoverPage = () => {
           if (currentSection === 'hero') {
             handleScrollToContent();
           } else if (currentSection === 'content') {
-            // Check if content is scrolled to bottom
+            // Only go to menu if content is actually at the bottom
             const tabContainer = document.querySelector('.tab-content-container');
             if (tabContainer) {
-              const isAtBottom = tabContainer.scrollTop + tabContainer.clientHeight >= tabContainer.scrollHeight - 10;
+              const isAtBottom = tabContainer.scrollTop + tabContainer.clientHeight >= tabContainer.scrollHeight - 50;
               if (isAtBottom) {
                 handleScrollToMenu();
               }
@@ -328,10 +314,10 @@ const DiscoverPage = () => {
           if (currentSection === 'menu') {
             handleScrollToMain();
           } else if (currentSection === 'content') {
-            // Check if content is scrolled to top
+            // Only go to hero if content is actually at the top
             const tabContainer = document.querySelector('.tab-content-container');
             if (tabContainer) {
-              const isAtTop = tabContainer.scrollTop <= 10;
+              const isAtTop = tabContainer.scrollTop <= 50;
               if (isAtTop) {
                 handleScrollToHero();
               }
@@ -348,25 +334,18 @@ const DiscoverPage = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Check if we're in content section and allow normal scrolling
-      if (currentSection === 'content') {
+      // Handle section transitions with better thresholds
+      if (scrollY > windowHeight * 0.2 && currentSection === 'hero') {
+        handleScrollToContent();
+      } else if (scrollY < windowHeight * 0.1 && currentSection === 'content') {
+        // Only go to hero if content is at top
         const tabContainer = document.querySelector('.tab-content-container');
         if (tabContainer) {
-          const containerRect = tabContainer.getBoundingClientRect();
-          const isInContentArea = containerRect.top <= 0 && containerRect.bottom >= window.innerHeight;
-          
-          if (isInContentArea) {
-            // Allow normal scrolling within content
-            return;
+          const isAtTop = tabContainer.scrollTop <= 50;
+          if (isAtTop) {
+            handleScrollToHero();
           }
         }
-      }
-      
-      // Handle section transitions only when not in content
-      if (scrollY > windowHeight * 0.1 && currentSection === 'hero') {
-        handleScrollToContent();
-      } else if (scrollY < windowHeight * 0.05 && currentSection === 'content') {
-        handleScrollToHero();
       }
     };
 
@@ -405,25 +384,17 @@ const DiscoverPage = () => {
       const touchDelta = touchStartY - touchEndY;
       const touchDuration = Date.now() - touchStartTime;
       
-      // Check if touch is within content area
-      const tabContainer = document.querySelector('.tab-content-container');
-      let isInContentArea = false;
-      
-      if (tabContainer) {
-        const containerRect = tabContainer.getBoundingClientRect();
-        isInContentArea = containerRect.top <= 0 && containerRect.bottom >= window.innerHeight;
-      }
-      
-      // Only handle section transitions if not in content area
-      if (Math.abs(touchDelta) > 30 && touchDuration < 1000 && !isInContentArea) {
+      // Handle section transitions with better boundary detection
+      if (Math.abs(touchDelta) > 50 && touchDuration < 1000) {
         if (touchDelta > 0) {
           // Swipe down
           if (currentSection === 'hero') {
             handleScrollToContent();
           } else if (currentSection === 'content') {
             // Check if content is at bottom
+            const tabContainer = document.querySelector('.tab-content-container');
             if (tabContainer) {
-              const isAtBottom = tabContainer.scrollTop + tabContainer.clientHeight >= tabContainer.scrollHeight - 10;
+              const isAtBottom = tabContainer.scrollTop + tabContainer.clientHeight >= tabContainer.scrollHeight - 50;
               if (isAtBottom) {
                 handleScrollToMenu();
               }
@@ -435,8 +406,9 @@ const DiscoverPage = () => {
             handleScrollToMain();
           } else if (currentSection === 'content') {
             // Check if content is at top
+            const tabContainer = document.querySelector('.tab-content-container');
             if (tabContainer) {
-              const isAtTop = tabContainer.scrollTop <= 10;
+              const isAtTop = tabContainer.scrollTop <= 50;
               if (isAtTop) {
                 handleScrollToHero();
               }
