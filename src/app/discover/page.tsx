@@ -43,7 +43,7 @@ const DiscoverPage = () => {
       },
       {
         threshold: 0,
-        rootMargin: '-80px 0px 0px 0px' // Account for top navigation height
+        rootMargin: '-80px 0px 0px 0px' // Account for top navigation height (80px for both mobile and desktop)
       }
     );
 
@@ -132,13 +132,13 @@ const DiscoverPage = () => {
             isSticky ? 'fixed top-20 left-0 right-0 z-30' : 'relative'
           }`}
         >
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-            <div className="flex justify-center space-x-2 sm:space-x-4 md:space-x-8 lg:space-x-16 xl:space-x-24 py-4 sm:py-6">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div className="flex justify-center space-x-4 sm:space-x-16 lg:space-x-24 py-6">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => handleTabClick(tab.id)}
-                  className={`relative font-medium transition-all duration-300 pb-2 px-1 sm:px-2 md:px-4 py-2 text-xs sm:text-sm md:text-base ${
+                  className={`relative font-medium transition-all duration-300 pb-2 px-4 py-2 ${
                     activeTab === tab.id
                       ? 'text-blue-400 border-b-2 border-blue-400'
                       : 'text-white hover:text-gray-300 hover:border-b-2 hover:border-gray-300'
@@ -160,7 +160,7 @@ const DiscoverPage = () => {
             <span className="block">MORE</span>
             <span className="block">{activeTab}</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-white mt-3 max-w-md mx-auto px-4" style={{ fontFamily: 'Arial, sans-serif' }}>
+          <p className="text-sm sm:text-base md:text-lg text-white mt-3 max-w-md mx-auto px-2" style={{ fontFamily: 'Arial, sans-serif' }}>
             {activeTab === 'VISION' && "Chouhan Park View is a magnificent location offering homes, shops, dining, and office space within the Bhilai community."}
             {activeTab === 'LOCATION' && "Strategically positioned in the heart of Bhilai, offering unparalleled access to everything the city has to offer."}
             {activeTab === 'TRANSIT' && "Connected to the entire Lower Mainland with multiple transit options right at your doorstep."}
@@ -169,7 +169,7 @@ const DiscoverPage = () => {
         </div>
 
         {/* Tab Content */}
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-gray-800">
+        <div className="max-w-xl mx-auto px-2 sm:px-6 lg:px-8 py-8 bg-gray-800">
           {activeTab === 'VISION' && <VisionPage />}
           {activeTab === 'LOCATION' && <LocationPage />}
           {activeTab === 'TRANSIT' && <TransitPage />}
