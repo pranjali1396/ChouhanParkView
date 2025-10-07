@@ -334,8 +334,10 @@ const DiscoverPage = () => {
       const windowHeight = window.innerHeight;
       
       // If user scrolls down significantly, trigger section transition
-      if (scrollY > windowHeight * 0.3 && currentSection === 'hero') {
+      if (scrollY > windowHeight * 0.2 && currentSection === 'hero') {
         handleScrollToContent();
+      } else if (scrollY < windowHeight * 0.1 && currentSection === 'content') {
+        handleScrollToHero();
       }
     };
 
@@ -376,7 +378,7 @@ const DiscoverPage = () => {
       });
       
       // More sensitive threshold for mobile
-      if (Math.abs(touchDelta) > 50 && touchDuration < 1000) {
+      if (Math.abs(touchDelta) > 30 && touchDuration < 1000) {
         if (touchDelta > 0) {
           console.log('Swipe down detected, current section:', currentSection);
           if (currentSection === 'hero') {
@@ -651,7 +653,7 @@ const DiscoverPage = () => {
 
         {/* Tab Content */}
         <div className="flex-1 flex flex-col justify-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
             {activeTab === 'VISION' && <VisionPage />}
             {activeTab === 'LOCATION' && <LocationPage />}
             {activeTab === 'TRANSIT' && <TransitPage />}

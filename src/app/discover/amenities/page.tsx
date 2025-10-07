@@ -5,15 +5,15 @@ import { Dumbbell, TreePine, Users, Coffee, ShoppingBag, Car } from 'lucide-reac
 
 const AmenitiesPage = () => {
   return (
-    <div className="w-full">
+    <div className="w-full px-4 md:px-0">
       <div className="w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'Arial, sans-serif' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'Arial, sans-serif' }}>
             <span className="block">WORLD-CLASS</span>
             <span className="block">AMENITIES</span>
             <span className="block">& LIFESTYLE</span>
@@ -24,9 +24,9 @@ const AmenitiesPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="max-w-4xl mx-auto text-center mb-12 md:mb-16 px-4"
         >
-          <p className="text-white text-lg md:text-xl leading-relaxed" style={{ fontFamily: 'Arial, sans-serif' }}>
+          <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed" style={{ fontFamily: 'Arial, sans-serif' }}>
             Over 50,000 sq ft of unparalleled private indoor and outdoor spaces designed to enhance your lifestyle and well-being.
           </p>
         </motion.div>
@@ -35,7 +35,7 @@ const AmenitiesPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 px-4"
         >
           {[
             {
@@ -88,9 +88,9 @@ const AmenitiesPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-16"
+          className="mt-12 md:mt-16 px-4"
         >
-          <div className="bg-gray-700 rounded-2xl p-8">
+          <div className="bg-gray-700 rounded-2xl p-4 md:p-8">
             <h3 className="text-2xl font-bold text-white text-center mb-8">Additional Features</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
