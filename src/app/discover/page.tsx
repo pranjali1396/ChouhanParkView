@@ -268,32 +268,21 @@ const DiscoverPage = () => {
     }
   }, [isTransitioning]);
 
-  // Handle scroll events
+  // Handle scroll events with improved logic
   useEffect(() => {
     let lastScrollTime = 0;
-    const scrollThreshold = 30; // More sensitive threshold for mobile
+    const scrollThreshold = 50; // Less sensitive for better content scrolling
     let accumulatedDelta = 0;
+    let isScrollingInContent = false;
 
     const handleWheel = (e: WheelEvent) => {
-      console.log('Wheel event:', { 
-        isInitialized, 
-        isTransitioning, 
-        currentSection,
-        showMenu, 
-        deltaY: e.deltaY,
-        accumulatedDelta,
-        scrollThreshold 
-      });
-      
       if (isTransitioning) {
-        console.log('Blocked scroll - transitioning');
         e.preventDefault();
         return;
       }
 
       const currentTime = Date.now();
       const timeDiff = currentTime - lastScrollTime;
-
       accumulatedDelta += e.deltaY;
 
       if (timeDiff > 200) {
@@ -302,26 +291,52 @@ const DiscoverPage = () => {
 
       lastScrollTime = currentTime;
 
-      console.log('Accumulated delta:', accumulatedDelta);
-
-      if (accumulatedDelta > scrollThreshold) {
-        e.preventDefault();
-        accumulatedDelta = 0;
-        console.log('Scrolling down, current section:', currentSection);
-        if (currentSection === 'hero') {
-          handleScrollToContent();
-        } else if (currentSection === 'content') {
-          handleScrollToMenu();
+      // Check if we're scrolling within tab content
+      const tabContainer = document.querySelector('.tab-content-container');
+      if (tabContainer) {
+        const containerRect = tabContainer.getBoundingClientRect();
+        const isInContentArea = containerRect.top <= 0 && containerRect.bottom >= window.innerHeight;
+        
+        if (isInContentArea) {
+          // Allow normal scrolling within content
+          isScrollingInContent = true;
+          return;
         }
-      } else if (accumulatedDelta < -scrollThreshold && !menuOpenedViaButtonRef.current) {
+      }
+
+      // Only handle section transitions when not scrolling in content
+      if (Math.abs(accumulatedDelta) > scrollThreshold && !isScrollingInContent) {
         e.preventDefault();
         accumulatedDelta = 0;
-        console.log('Scrolling up, current section:', currentSection);
-        if (currentSection === 'menu') {
-        handleScrollToMain();
-        } else if (currentSection === 'content') {
-          // Scroll back to hero
-          handleScrollToHero();
+        
+        if (e.deltaY > 0) {
+          // Scrolling down
+          if (currentSection === 'hero') {
+            handleScrollToContent();
+          } else if (currentSection === 'content') {
+            // Check if content is scrolled to bottom
+            const tabContainer = document.querySelector('.tab-content-container');
+            if (tabContainer) {
+              const isAtBottom = tabContainer.scrollTop + tabContainer.clientHeight >= tabContainer.scrollHeight - 10;
+              if (isAtBottom) {
+                handleScrollToMenu();
+              }
+            }
+          }
+        } else if (e.deltaY < 0 && !menuOpenedViaButtonRef.current) {
+          // Scrolling up
+          if (currentSection === 'menu') {
+            handleScrollToMain();
+          } else if (currentSection === 'content') {
+            // Check if content is scrolled to top
+            const tabContainer = document.querySelector('.tab-content-container');
+            if (tabContainer) {
+              const isAtTop = tabContainer.scrollTop <= 10;
+              if (isAtTop) {
+                handleScrollToHero();
+              }
+            }
+          }
         }
       }
     };
@@ -333,7 +348,21 @@ const DiscoverPage = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // More sensitive scroll detection for mobile
+      // Check if we're in content section and allow normal scrolling
+      if (currentSection === 'content') {
+        const tabContainer = document.querySelector('.tab-content-container');
+        if (tabContainer) {
+          const containerRect = tabContainer.getBoundingClientRect();
+          const isInContentArea = containerRect.top <= 0 && containerRect.bottom >= window.innerHeight;
+          
+          if (isInContentArea) {
+            // Allow normal scrolling within content
+            return;
+          }
+        }
+      }
+      
+      // Handle section transitions only when not in content
       if (scrollY > windowHeight * 0.1 && currentSection === 'hero') {
         handleScrollToContent();
       } else if (scrollY < windowHeight * 0.05 && currentSection === 'content') {
@@ -376,30 +405,42 @@ const DiscoverPage = () => {
       const touchDelta = touchStartY - touchEndY;
       const touchDuration = Date.now() - touchStartTime;
       
-      console.log('Touch end:', {
-        touchStartY,
-        touchEndY,
-        touchDelta,
-        touchDuration,
-        currentSection,
-        isTransitioning
-      });
+      // Check if touch is within content area
+      const tabContainer = document.querySelector('.tab-content-container');
+      let isInContentArea = false;
       
-      // More sensitive threshold for mobile
-      if (Math.abs(touchDelta) > 20 && touchDuration < 1000) {
+      if (tabContainer) {
+        const containerRect = tabContainer.getBoundingClientRect();
+        isInContentArea = containerRect.top <= 0 && containerRect.bottom >= window.innerHeight;
+      }
+      
+      // Only handle section transitions if not in content area
+      if (Math.abs(touchDelta) > 30 && touchDuration < 1000 && !isInContentArea) {
         if (touchDelta > 0) {
-          console.log('Swipe down detected, current section:', currentSection);
+          // Swipe down
           if (currentSection === 'hero') {
             handleScrollToContent();
           } else if (currentSection === 'content') {
-            handleScrollToMenu();
+            // Check if content is at bottom
+            if (tabContainer) {
+              const isAtBottom = tabContainer.scrollTop + tabContainer.clientHeight >= tabContainer.scrollHeight - 10;
+              if (isAtBottom) {
+                handleScrollToMenu();
+              }
+            }
           }
         } else if (touchDelta < 0 && !menuOpenedViaButtonRef.current) {
-          console.log('Swipe up detected, current section:', currentSection);
+          // Swipe up
           if (currentSection === 'menu') {
             handleScrollToMain();
           } else if (currentSection === 'content') {
-            handleScrollToHero();
+            // Check if content is at top
+            if (tabContainer) {
+              const isAtTop = tabContainer.scrollTop <= 10;
+              if (isAtTop) {
+                handleScrollToHero();
+              }
+            }
           }
         }
       }
