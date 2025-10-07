@@ -37,12 +37,27 @@ const DiscoverPage = () => {
     const navigation = navigationRef.current;
     if (!navigation) return;
 
+    let timeoutId: NodeJS.Timeout;
+    let lastStickyState = false;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Make sticky when navigation section reaches top of viewport
-        // When navigation is at top (intersecting with top), it should be sticky
-        // When navigation is not at top (not intersecting), it should not be sticky
-        setIsSticky(entry.boundingClientRect.top <= 0);
+        // Clear previous timeout to debounce
+        clearTimeout(timeoutId);
+        
+        timeoutId = setTimeout(() => {
+          const rect = entry.boundingClientRect;
+          const shouldBeSticky = rect.top <= 10; // Small threshold to prevent flickering
+          
+          // Use hysteresis to prevent flickering
+          if (shouldBeSticky && !lastStickyState) {
+            setIsSticky(true);
+            lastStickyState = true;
+          } else if (rect.top > 30 && lastStickyState) {
+            setIsSticky(false);
+            lastStickyState = false;
+          }
+        }, 16); // 60fps debounce
       },
       {
         threshold: 0,
@@ -54,6 +69,7 @@ const DiscoverPage = () => {
 
     return () => {
       observer.disconnect();
+      clearTimeout(timeoutId);
     };
   }, []);
 
