@@ -34,21 +34,23 @@ const DiscoverPage = () => {
 
   // Use Intersection Observer for stable sticky detection
   useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
+    const navigation = navigationRef.current;
+    if (!navigation) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Make sticky on both mobile and desktop, but only after hero image
-        setIsSticky(!entry.isIntersecting);
+        // Make sticky when navigation section reaches top of viewport
+        // When navigation is at top (intersecting with top), it should be sticky
+        // When navigation is not at top (not intersecting), it should not be sticky
+        setIsSticky(entry.boundingClientRect.top <= 0);
       },
       {
         threshold: 0,
-        rootMargin: '0px 0px 0px 0px' // No margin - sticky when navigation reaches top of viewport
+        rootMargin: '0px 0px 0px 0px'
       }
     );
 
-    observer.observe(sentinel);
+    observer.observe(navigation);
 
     return () => {
       observer.disconnect();
