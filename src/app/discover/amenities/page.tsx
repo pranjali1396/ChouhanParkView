@@ -5,7 +5,7 @@ import { Dumbbell, TreePine, Users, Coffee, ShoppingBag, Car } from 'lucide-reac
 
 const AmenitiesPage = () => {
   return (
-    <div className="w-full px-4 md:px-0">
+    <div className="w-full px-6 sm:px-8 md:px-0">
       <div className="w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -24,7 +24,7 @@ const AmenitiesPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto text-center mb-12 md:mb-16 px-4"
+          className="max-w-4xl mx-auto text-center mb-12 md:mb-16 px-6 sm:px-8"
         >
           <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed" style={{ fontFamily: 'Arial, sans-serif' }}>
             Over 50,000 sq ft of unparalleled private indoor and outdoor spaces designed to enhance your lifestyle and well-being.
@@ -35,7 +35,7 @@ const AmenitiesPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 px-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 px-6 sm:px-8"
         >
           {[
             {
@@ -88,7 +88,7 @@ const AmenitiesPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-12 md:mt-16 px-4"
+          className="mt-12 md:mt-16 px-6 sm:px-8"
         >
           <div className="bg-gray-700 rounded-2xl p-4 md:p-8">
             <h3 className="text-2xl font-bold text-white text-center mb-8">Additional Features</h3>
