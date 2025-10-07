@@ -178,7 +178,7 @@ const HeroSection = () => {
             window.dispatchEvent(wheelEvent);
           }}
         >
-          <ChevronDown className="w-8 h-8" strokeWidth={1.5} />
+          <div className="w-6 h-6 border-b-4 border-r-4 border-white scroll-indicator"></div>
         </motion.div>
       </motion.div>
     </section>

@@ -84,7 +84,11 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
       {/* Logo - Top Left */}
       <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
         {/* Desktop Logo with Border */}
-        <div className="hidden md:block border-2 border-white p-4" style={{ boxShadow: 'none' }}>
+        <div className="hidden md:block border-2 border-white p-6 pt-8" style={{ 
+          boxShadow: '0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+          backdropFilter: 'blur(10px)'
+        }}>
           <h1 className="text-white text-base font-bold tracking-widest text-center" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.1em' }}>
             <div className="mb-3">&nbsp;</div>
             <div>CHOUHAN</div>
@@ -130,7 +134,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
 
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col px-4 pt-24 pb-16 md:px-8 md:pt-32 md:flex-row md:items-start md:justify-start md:pl-72 md:pb-20">
+      <div className="relative z-10 min-h-screen flex flex-col px-4 pt-24 pb-16 md:px-8 md:pt-12 md:flex-row md:items-start md:justify-start md:pl-72 md:pb-20">
         {/* Main Navigation Menu */}
         <div className="flex-1 md:flex-none">
           <motion.div
@@ -206,8 +210,8 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             className="mb-2"
           >
             <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif' }}>
-              <div className="font-bold" style={{ fontSize: '18px', letterSpacing: '0.05em' }}>CHOUHAN</div>
-              <div className="font-light" style={{ fontSize: '12px', letterSpacing: '0.15em' }}>GROUP</div>
+              <div className="font-bold" style={{ fontSize: '24px', letterSpacing: '0.05em' }}>CHOUHAN</div>
+              <div className="font-light" style={{ fontSize: '16px', letterSpacing: '0.15em' }}>GROUP</div>
             </div>
           </motion.div>
 
