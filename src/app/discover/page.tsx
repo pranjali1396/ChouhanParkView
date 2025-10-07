@@ -12,9 +12,8 @@ const DiscoverPage = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [activeTab, setActiveTab] = useState('VISION'); // VISION, LOCATION, TRANSIT, AMENITIES
   const [isSticky, setIsSticky] = useState(false);
-  
   const navigationRef = useRef<HTMLDivElement>(null);
-  const sentinelRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   const handleMenuClick = () => {
     setShowMenu(true);
@@ -32,42 +31,21 @@ const DiscoverPage = () => {
     }
   };
 
-  // Use Intersection Observer for stable sticky detection
+  // Simple scroll-based sticky navigation
   useEffect(() => {
-    const sentinel = sentinelRef.current;
-    const navigation = navigationRef.current;
-    if (!sentinel || !navigation) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Check if navigation would overlap with hero section
-        const heroSection = document.querySelector('section:first-of-type');
-        if (heroSection) {
-          const heroRect = heroSection.getBoundingClientRect();
-          const navRect = navigation.getBoundingClientRect();
-          
-          // Only make sticky if navigation is below hero section
-          // and sentinel is out of view
-          const isBelowHero = navRect.top >= heroRect.bottom;
-          const sentinelOutOfView = !entry.isIntersecting;
-          
-          setIsSticky(isBelowHero && sentinelOutOfView);
-        } else {
-          // Fallback to original logic if hero section not found
-          setIsSticky(!entry.isIntersecting);
-        }
-      },
-      {
-        threshold: 0,
-        rootMargin: '-80px 0px 0px 0px' // Account for top navigation height
-      }
-    );
-
-    observer.observe(sentinel);
-
-    return () => {
-      observer.disconnect();
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      // Make navigation sticky when scrolled past 100vh (hero section height)
+      const shouldBeSticky = scrollTop >= window.innerHeight - 100;
+      
+      setIsSticky(shouldBeSticky);
     };
+
+    window.addEventListener('scroll', handleScroll);
+    // Check initial state
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const tabs = [
@@ -102,7 +80,7 @@ const DiscoverPage = () => {
       <div className="bg-gray-800">
 
         {/* Hero Section - DISCOVER with background first */}
-        <section className="h-screen relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")' }}>
+        <section ref={heroRef} className="h-screen relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")' }}>
           {/* Geometric overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-purple-800/50 to-blue-700/60">
             <div className="absolute inset-0 opacity-30">
@@ -138,14 +116,13 @@ const DiscoverPage = () => {
           </div>
         </section>
 
-        {/* Sentinel element for intersection observer */}
-        <div ref={sentinelRef} className="h-0 w-full"></div>
-
-        {/* Navigation Section - Becomes fixed when scrolling (desktop only) */}
+        {/* Navigation Section - Becomes fixed when scrolling (mobile & desktop) */}
         <section 
           ref={navigationRef}
-          className={`navigation-section bg-gray-800 shadow-lg transition-all duration-300 ${
-            isSticky ? 'fixed top-20 left-0 right-0 z-30' : 'relative'
+          className={`navigation-section shadow-lg transition-all duration-300 ${
+            isSticky 
+              ? 'fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm' 
+              : 'relative bg-gray-800'
           }`}
         >
           <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
@@ -168,7 +145,8 @@ const DiscoverPage = () => {
         </section>
 
         {/* Spacer to maintain layout when navigation becomes fixed */}
-        {isSticky && <div className="h-20"></div>}
+        {isSticky && <div className="h-16"></div>}
+        
 
         {/* Main Heading */}
         <div className="main-heading-section text-center py-6 bg-gray-800">
