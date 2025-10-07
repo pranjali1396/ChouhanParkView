@@ -271,7 +271,7 @@ const DiscoverPage = () => {
   // Handle scroll events
   useEffect(() => {
     let lastScrollTime = 0;
-    const scrollThreshold = 50; // More reasonable threshold for mobile
+    const scrollThreshold = 30; // More sensitive threshold for mobile
     let accumulatedDelta = 0;
 
     const handleWheel = (e: WheelEvent) => {
@@ -333,20 +333,28 @@ const DiscoverPage = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // If user scrolls down significantly, trigger section transition
-      if (scrollY > windowHeight * 0.2 && currentSection === 'hero') {
+      // More sensitive scroll detection for mobile
+      if (scrollY > windowHeight * 0.1 && currentSection === 'hero') {
         handleScrollToContent();
-      } else if (scrollY < windowHeight * 0.1 && currentSection === 'content') {
+      } else if (scrollY < windowHeight * 0.05 && currentSection === 'content') {
         handleScrollToHero();
       }
     };
 
+    // Add throttled scroll handler for better mobile support
+    let scrollTimeout: NodeJS.Timeout;
+    const throttledScrollHandler = () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(handleScroll, 100);
+    };
+
     window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
     
     return () => {
       window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledScrollHandler);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
     };
   }, [currentSection, showMenu, isTransitioning, isInitialized, handleScrollToContent, handleScrollToMenu, handleScrollToMain, handleScrollToHero]);
 
@@ -378,7 +386,7 @@ const DiscoverPage = () => {
       });
       
       // More sensitive threshold for mobile
-      if (Math.abs(touchDelta) > 30 && touchDuration < 1000) {
+      if (Math.abs(touchDelta) > 20 && touchDuration < 1000) {
         if (touchDelta > 0) {
           console.log('Swipe down detected, current section:', currentSection);
           if (currentSection === 'hero') {
@@ -398,7 +406,8 @@ const DiscoverPage = () => {
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      // Only prevent default if we're in a transition to avoid conflicts
+      // Don't prevent default touch move to allow normal scrolling
+      // Only prevent during transitions
       if (isTransitioning) {
         e.preventDefault();
       }
