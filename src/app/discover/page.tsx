@@ -271,7 +271,7 @@ const DiscoverPage = () => {
   // Handle scroll events
   useEffect(() => {
     let lastScrollTime = 0;
-    const scrollThreshold = 5; // Very sensitive threshold
+    const scrollThreshold = 50; // More reasonable threshold for mobile
     let accumulatedDelta = 0;
 
     const handleWheel = (e: WheelEvent) => {
@@ -326,10 +326,25 @@ const DiscoverPage = () => {
       }
     };
 
+    // Handle regular scroll events for mobile
+    const handleScroll = () => {
+      if (isTransitioning || !isInitialized) return;
+      
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // If user scrolls down significantly, trigger section transition
+      if (scrollY > windowHeight * 0.3 && currentSection === 'hero') {
+        handleScrollToContent();
+      }
+    };
+
     window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [currentSection, showMenu, isTransitioning, isInitialized, handleScrollToContent, handleScrollToMenu, handleScrollToMain, handleScrollToHero]);
 
@@ -360,8 +375,8 @@ const DiscoverPage = () => {
         isTransitioning
       });
       
-      // More sensitive threshold for mobile (reduced from 50 to 30)
-      if (Math.abs(touchDelta) > 30 && touchDuration < 1000) {
+      // More sensitive threshold for mobile
+      if (Math.abs(touchDelta) > 50 && touchDuration < 1000) {
         if (touchDelta > 0) {
           console.log('Swipe down detected, current section:', currentSection);
           if (currentSection === 'hero') {
@@ -381,8 +396,8 @@ const DiscoverPage = () => {
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      // Prevent default scrolling behavior to avoid conflicts
-      if (isInitialized && !isTransitioning) {
+      // Only prevent default if we're in a transition to avoid conflicts
+      if (isTransitioning) {
         e.preventDefault();
       }
     };
