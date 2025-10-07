@@ -35,12 +35,27 @@ const DiscoverPage = () => {
   // Use Intersection Observer for stable sticky detection
   useEffect(() => {
     const sentinel = sentinelRef.current;
-    if (!sentinel) return;
+    const navigation = navigationRef.current;
+    if (!sentinel || !navigation) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Make sticky when sentinel goes out of view (after hero image)
-        setIsSticky(!entry.isIntersecting);
+        // Check if navigation would overlap with hero section
+        const heroSection = document.querySelector('section:first-of-type');
+        if (heroSection) {
+          const heroRect = heroSection.getBoundingClientRect();
+          const navRect = navigation.getBoundingClientRect();
+          
+          // Only make sticky if navigation is below hero section
+          // and sentinel is out of view
+          const isBelowHero = navRect.top >= heroRect.bottom;
+          const sentinelOutOfView = !entry.isIntersecting;
+          
+          setIsSticky(isBelowHero && sentinelOutOfView);
+        } else {
+          // Fallback to original logic if hero section not found
+          setIsSticky(!entry.isIntersecting);
+        }
       },
       {
         threshold: 0,
