@@ -39,13 +39,8 @@ const DiscoverPage = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Only make sticky on desktop (md and above)
-        const isDesktop = window.innerWidth >= 768;
-        if (isDesktop) {
-          setIsSticky(!entry.isIntersecting);
-        } else {
-          setIsSticky(false); // Always false on mobile
-        }
+        // Make sticky on both mobile and desktop
+        setIsSticky(!entry.isIntersecting);
       },
       {
         threshold: 0,
@@ -138,13 +133,13 @@ const DiscoverPage = () => {
             isSticky ? 'fixed top-20 left-0 right-0 z-30' : 'relative'
           }`}
         >
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="flex justify-center space-x-4 sm:space-x-16 lg:space-x-24 py-6">
+          <div className="max-w-7xl mx-auto px-1 sm:px-6 lg:px-8">
+            <div className="flex justify-center space-x-2 sm:space-x-16 lg:space-x-24 py-6">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => handleTabClick(tab.id)}
-                  className={`relative font-medium transition-all duration-300 pb-2 px-4 py-2 ${
+                  className={`relative font-medium transition-all duration-300 pb-2 px-2 py-2 ${
                     activeTab === tab.id
                       ? 'text-blue-400 border-b-2 border-blue-400'
                       : 'text-white hover:text-gray-300 hover:border-b-2 hover:border-gray-300'
