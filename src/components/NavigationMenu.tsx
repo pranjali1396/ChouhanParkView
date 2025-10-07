@@ -82,7 +82,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
       </div>
 
       {/* Logo - Top Left */}
-      <div className="absolute top-8 left-8 z-20">
+      <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
         {/* Desktop Logo with Border */}
         <div className="hidden md:block border-2 border-white p-4" style={{ boxShadow: 'none' }}>
           <h1 className="text-white text-base font-bold tracking-widest text-center" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.1em' }}>
@@ -102,35 +102,35 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
       </div>
 
       {/* Social Media Icons and Close Button - Top Right */}
-      <div className="absolute top-8 right-8 z-20">
-        <div className="flex items-center space-x-3">
+      <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+        <div className="flex items-center space-x-2 md:space-x-3">
           {/* Mobile Social Media Icons */}
-          <div className="md:hidden flex items-center space-x-4">
-            <a href="#" className="bg-white rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
-              <Facebook className="w-7 h-7 text-black" fill="currentColor" strokeWidth={0} />
+          <div className="md:hidden flex items-center space-x-2">
+            <a href="#" className="bg-white rounded-full p-2 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
+              <Facebook className="w-4 h-4 text-black" fill="currentColor" strokeWidth={0} />
             </a>
-            <a href="#" className="bg-white rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
-              <Twitter className="w-7 h-7 text-black" fill="currentColor" strokeWidth={0} />
+            <a href="#" className="bg-white rounded-full p-2 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
+              <Twitter className="w-4 h-4 text-black" fill="currentColor" strokeWidth={0} />
             </a>
-            <a href="#" className="bg-white rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
-              <Instagram className="w-7 h-7 text-black" strokeWidth={2} />
+            <a href="#" className="bg-white rounded-full p-2 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
+              <Instagram className="w-4 h-4 text-black" strokeWidth={2} />
             </a>
           </div>
           
           {/* Close Button */}
         <button
           onClick={onClose}
-          className="text-white hover:text-gray-300 transition-colors duration-300 p-3"
+          className="text-white hover:text-gray-300 transition-colors duration-300 p-2 md:p-3"
           aria-label="Close menu"
         >
-          <X className="w-10 h-10" strokeWidth={2} />
+          <X className="w-6 h-6 md:w-10 md:h-10" strokeWidth={2} />
         </button>
         </div>
       </div>
 
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col px-8 pt-32 pb-16 md:flex-row md:items-start md:justify-start md:pl-72 md:pt-24 md:pb-20">
+      <div className="relative z-10 min-h-screen flex flex-col px-4 pt-24 pb-16 md:px-8 md:pt-32 md:flex-row md:items-start md:justify-start md:pl-72 md:pb-20">
         {/* Main Navigation Menu */}
         <div className="flex-1 md:flex-none">
           <motion.div
@@ -197,7 +197,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
         </div>
 
         {/* Mobile-only bottom content */}
-        <div className="md:hidden mt-8">
+        <div className="md:hidden mt-6 mb-8">
           {/* Chouhan Group */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -232,10 +232,10 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="space-y-0.5 mb-2"
           >
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '18px', letterSpacing: '0.05em' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '16px', letterSpacing: '0.05em' }}>
               9109104005
             </div>
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '16px', letterSpacing: '0.05em' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
               CHOUHANHOUSING@GMAIL.COM
             </div>
           </motion.div>
@@ -245,8 +245,8 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-white mb-2 ml-6"
-            style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '10px', lineHeight: '1.4' }}
+            className="text-white mb-2 ml-2"
+            style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '9px', lineHeight: '1.3' }}
           >
             <p className="mb-1">Rendering is artist&apos;s interpretation only. Please speak with a Chouhan Representative for more details. E.&O.E.</p>
             <p>
