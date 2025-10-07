@@ -661,14 +661,97 @@ const DiscoverPage = () => {
         </div>
 
         {/* Tab Content */}
-        <div className="flex-1 flex flex-col justify-center">
-          <div className="max-w-7xl mx-auto px-4 xs:px-6 sm:px-8 md:px-10 lg:px-12 xl:px-8 py-6 sm:py-8 md:py-10 lg:py-12">
+        <div className="flex-1 flex flex-col justify-center relative">
+          {/* Scroll Up Button */}
+          <button
+            onClick={() => {
+              const container = document.querySelector('.tab-content-container');
+              if (container) {
+                container.scrollBy({ top: -300, behavior: 'smooth' });
+              }
+            }}
+            className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 bg-gray-800/80 hover:bg-gray-700/80 text-white p-2 rounded-full transition-all duration-300 opacity-70 hover:opacity-100"
+            aria-label="Scroll up"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+            </svg>
+          </button>
+
+          {/* Scroll Down Button */}
+          <button
+            onClick={() => {
+              const container = document.querySelector('.tab-content-container');
+              if (container) {
+                container.scrollBy({ top: 300, behavior: 'smooth' });
+              }
+            }}
+            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-gray-800/80 hover:bg-gray-700/80 text-white p-2 rounded-full transition-all duration-300 opacity-70 hover:opacity-100"
+            aria-label="Scroll down"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {/* Scroll Progress Indicator */}
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20">
+            <div className="w-1 h-32 bg-gray-600 rounded-full overflow-hidden">
+              <div 
+                className="w-full bg-blue-500 transition-all duration-300 ease-out"
+                style={{ height: '0%' }}
+                id="scroll-progress"
+              ></div>
+            </div>
+          </div>
+
+          <div 
+            className="max-w-7xl mx-auto px-2.5 xs:px-2.5 sm:px-2.5 md:px-2.5 lg:px-2.5 xl:px-2.5 py-4 sm:py-5 md:py-6 lg:py-7 tab-content-container overflow-y-auto max-h-screen"
+            onScroll={(e) => {
+              const container = e.target as HTMLElement;
+              const scrollTop = container.scrollTop;
+              const scrollHeight = container.scrollHeight - container.clientHeight;
+              const scrollPercentage = (scrollTop / scrollHeight) * 100;
+              
+              const progressBar = document.getElementById('scroll-progress');
+              if (progressBar) {
+                progressBar.style.height = `${scrollPercentage}%`;
+              }
+
+              // Show/hide scroll to top button
+              const scrollToTopBtn = document.getElementById('scroll-to-top');
+              if (scrollToTopBtn) {
+                if (scrollTop > 200) {
+                  scrollToTopBtn.style.opacity = '1';
+                } else {
+                  scrollToTopBtn.style.opacity = '0';
+                }
+              }
+            }}
+          >
             {activeTab === 'VISION' && <VisionPage />}
             {activeTab === 'LOCATION' && <LocationPage />}
             {activeTab === 'TRANSIT' && <TransitPage />}
             {activeTab === 'AMENITIES' && <AmenitiesPage />}
           </div>
         </div>
+
+        {/* Scroll to Top Button */}
+        <button
+          onClick={() => {
+            const container = document.querySelector('.tab-content-container');
+            if (container) {
+              container.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+          className="absolute bottom-20 right-6 z-20 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-all duration-300 opacity-0 hover:opacity-100 shadow-lg"
+          id="scroll-to-top"
+          aria-label="Scroll to top"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
 
         {/* Chat Widget */}
         <div className="absolute bottom-6 right-6 z-10">

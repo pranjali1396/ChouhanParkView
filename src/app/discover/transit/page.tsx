@@ -13,7 +13,7 @@ const TransitPage = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
+          className="text-center mb-4 sm:mb-5 md:mb-6 lg:mb-7"
         >
           <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'Arial, sans-serif' }}>
             <span className="block">SEAMLESS</span>
@@ -27,7 +27,7 @@ const TransitPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 px-4 sm:px-6"
+          className="max-w-4xl mx-auto text-center mb-5 sm:mb-6 md:mb-7 lg:mb-8 px-4 sm:px-6"
         >
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed" style={{ fontFamily: 'Arial, sans-serif' }}>
             Connected to the entire Lower Mainland with multiple transit options right at your doorstep.
@@ -39,7 +39,7 @@ const TransitPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5"
         >
           {[
             {
@@ -70,7 +70,7 @@ const TransitPage = () => {
             const IconComponent = option.icon;
             return (
               <div key={index} className="text-center">
-                <div className="flex justify-center mb-3 sm:mb-4">
+                <div className="flex justify-center mb-2 sm:mb-3">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-600 rounded-full flex items-center justify-center">
                     <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                   </div>
@@ -88,11 +88,11 @@ const TransitPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-8 sm:mt-10 md:mt-12 lg:mt-16"
+          className="mt-5 sm:mt-6 md:mt-7 lg:mt-8"
         >
-          <div className="bg-gray-700 rounded-2xl p-4 sm:p-6 md:p-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-6 sm:mb-8">Transit Times</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="bg-gray-700 rounded-2xl p-3 sm:p-4 md:p-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-4 sm:mb-5">Transit Times</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               <div className="space-y-4">
                 <h4 className="text-base sm:text-lg font-semibold text-white">To Downtown Vancouver</h4>
                 <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
