@@ -91,7 +91,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
         }}>
           <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-xs font-bold tracking-widest text-center leading-tight" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.05em' }}>
             <div>CHOUHAN</div>
-            <div>PARK VIEW</div>
+            <div>PARKVIEW</div>
           </h1>
         </div>
         
