@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Building2, Coffee, Dumbbell, Briefcase, ShoppingBag } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 const AmenitiesPage = () => {
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -70,7 +71,7 @@ const AmenitiesPage = () => {
             Premium Living and Commercial Spaces in Bhilai
           </h2>
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed" style={{ fontFamily: 'Gotham, sans-serif' }}>
-            Chouhan Park View, a prestigious project by Chouhan Group, is located on Junwani Road, Bhilai, offering a blend of luxurious bungalows, premium 3 BHK flats, and modern commercial complexes. Designed to meet the needs of both residential and commercial buyers, Park View focuses on providing unmatched quality, comfort, and convenience. The residential spaces reflect a modern lifestyle with high-end amenities, while the commercial complex ensures a thriving business environment. Whether you're looking for a dream home or a prime business location, Chouhan Park View is the ultimate destination for premium living and commercial success in Bhilai.
+            Chouhan Park View, a prestigious project by Chouhan Group, is located on Junwani Road, Bhilai, offering a blend of luxurious bungalows, premium 3 BHK flats, and modern commercial complexes. Designed to meet the needs of both residential and commercial buyers, Park View focuses on providing unmatched quality, comfort, and convenience. The residential spaces reflect a modern lifestyle with high-end amenities, while the commercial complex ensures a thriving business environment. Whether you&apos;re looking for a dream home or a prime business location, Chouhan Park View is the ultimate destination for premium living and commercial success in Bhilai.
           </p>
         </motion.div>
 
@@ -101,9 +102,11 @@ const AmenitiesPage = () => {
                 {/* All Flat Images (1, 2, 3, 4, 5, 6, 7, 8, 9) */}
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                   <div key={`flat-${num}`} className="flex-shrink-0 w-80 h-full rounded-xl overflow-hidden shadow-lg">
-                    <img
+                    <Image
                       src={`/media/Residential/Flat pictures/FlatPictures (${num}).jpg`}
                       alt={`Flat Interior ${num}`}
+                      width={320}
+                      height={256}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
                         console.log(`Failed to load: /media/Residential/Flat pictures/FlatPictures (${num}).jpg`);
@@ -115,9 +118,11 @@ const AmenitiesPage = () => {
                 {/* All Bungalow Images (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19) */}
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19].map((num) => (
                   <div key={`bungalow-${num}`} className="flex-shrink-0 w-80 h-full rounded-xl overflow-hidden shadow-lg">
-                    <img
+                    <Image
                       src={`/media/Residential/Parkview Bunglow pictures_/Parkview_bunglow (${num}).jpg`}
                       alt={`Bungalow Interior ${num}`}
+                      width={320}
+                      height={256}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
                         console.log(`Failed to load: /media/Residential/Parkview Bunglow pictures_/Parkview_bunglow (${num}).jpg`);
@@ -129,9 +134,11 @@ const AmenitiesPage = () => {
                 {/* Duplicate for seamless loop - All Flat Images */}
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                   <div key={`dup-flat-${num}`} className="flex-shrink-0 w-80 h-full rounded-xl overflow-hidden shadow-lg">
-                    <img
+                    <Image
                       src={`/media/Residential/Flat pictures/FlatPictures (${num}).jpg`}
                       alt={`Flat Interior ${num}`}
+                      width={320}
+                      height={256}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
                         console.log(`Failed to load: /media/Residential/Flat pictures/FlatPictures (${num}).jpg`);
@@ -143,9 +150,11 @@ const AmenitiesPage = () => {
                 {/* Duplicate for seamless loop - All Bungalow Images */}
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19].map((num) => (
                   <div key={`dup-bungalow-${num}`} className="flex-shrink-0 w-80 h-full rounded-xl overflow-hidden shadow-lg">
-                    <img
+                    <Image
                       src={`/media/Residential/Parkview Bunglow pictures_/Parkview_bunglow (${num}).jpg`}
                       alt={`Bungalow Interior ${num}`}
+                      width={320}
+                      height={256}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
                         console.log(`Failed to load: /media/Residential/Parkview Bunglow pictures_/Parkview_bunglow (${num}).jpg`);

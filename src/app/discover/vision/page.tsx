@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 
 const VisionPage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -53,7 +54,7 @@ const VisionPage = () => {
               className="max-w-6xl mx-auto text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 px-4 sm:px-6"
             >
               <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-6" style={{ fontFamily: 'Gotham, sans-serif' }}>
-                Chouhan Group, a leading real estate developer in Bhilai, Chhattisgarh, has been shaping the city's residential and commercial landscapes with iconic buildings since its establishment. Founded in 1998 by Mr. Ajay Chouhan, the group has earned its reputation as the most reliable real estate developer in Central India through an unwavering commitment to quality, timely delivery, and customer trust. Our legacy of excellence spans over two decades, marked by a steadfast belief that homes are the foundation of joyful lives and aspirations.
+                Chouhan Group, a leading real estate developer in Bhilai, Chhattisgarh, has been shaping the city&apos;s residential and commercial landscapes with iconic buildings since its establishment. Founded in 1998 by Mr. Ajay Chouhan, the group has earned its reputation as the most reliable real estate developer in Central India through an unwavering commitment to quality, timely delivery, and customer trust. Our legacy of excellence spans over two decades, marked by a steadfast belief that homes are the foundation of joyful lives and aspirations.
               </p>
               <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed" style={{ fontFamily: 'Gotham, sans-serif' }}>
                 Expanding our commitment to excellence, Chouhan Group has diversified into the automotive and hospitality sectors. Chouhan Automobiles, featuring the exclusive Maruti Suzuki ARENA and NEXA showrooms, is a leading dealership in Chhattisgarh. Additionally, our hospitality ventures, including Empyrean Hotels and Empyrean Lake Resorts, reflect our dedication to providing comprehensive services that meet diverse lifestyle needs.
@@ -224,9 +225,11 @@ const VisionPage = () => {
           className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-4 sm:mt-6 md:mt-8"
         >
           <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-hidden shadow-2xl">
-            <img
+            <Image
               src="/media/Commercial_/Commercial layout/chouhan_park_view_4.webp"
               alt="Chouhan Park View"
+              width={1200}
+              height={700}
               className="w-full h-full object-contain"
             />
             {/* Overlay for better text readability if needed */}
