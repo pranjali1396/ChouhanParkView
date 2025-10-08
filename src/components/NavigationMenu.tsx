@@ -84,12 +84,12 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
       {/* Logo - Top Left */}
       <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
         {/* Desktop Logo with Perfect Square Box */}
-        <div className="hidden md:block border border-white w-24 h-24 flex items-end justify-center pb-2" style={{ 
+        <div className="hidden md:block border border-white w-24 h-24 relative" style={{ 
           boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
           backdropFilter: 'blur(10px)'
         }}>
-          <h1 className="text-white text-xs font-bold tracking-widest text-center leading-tight" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.05em' }}>
+          <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-xs font-bold tracking-widest text-center leading-tight" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.05em' }}>
             <div>CHOUHAN</div>
             <div>PARK VIEW</div>
           </h1>
