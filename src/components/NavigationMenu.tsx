@@ -83,35 +83,14 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
 
       {/* Logo - Top Left */}
       <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
-        {/* Desktop Logo with Square Brackets */}
-        <div className="hidden md:block relative p-6 pt-8" style={{ 
+        {/* Desktop Logo with Small Square Box */}
+        <div className="hidden md:block border border-white p-2 pt-3" style={{ 
+          boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
           backdropFilter: 'blur(10px)'
         }}>
-          {/* Left Square Bracket */}
-          <div className="absolute left-0 top-0 w-2 h-full bg-white" style={{ 
-            boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
-          }}></div>
-          <div className="absolute left-0 top-0 w-8 h-2 bg-white" style={{ 
-            boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
-          }}></div>
-          <div className="absolute left-0 bottom-0 w-8 h-2 bg-white" style={{ 
-            boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
-          }}></div>
-          
-          {/* Right Square Bracket */}
-          <div className="absolute right-0 top-0 w-2 h-full bg-white" style={{ 
-            boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
-          }}></div>
-          <div className="absolute right-0 top-0 w-8 h-2 bg-white" style={{ 
-            boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
-          }}></div>
-          <div className="absolute right-0 bottom-0 w-8 h-2 bg-white" style={{ 
-            boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
-          }}></div>
-          
-          <h1 className="text-white text-base font-bold tracking-widest text-center" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.1em' }}>
-            <div className="mb-3">&nbsp;</div>
+          <h1 className="text-white text-xs font-bold tracking-widest text-center" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.1em' }}>
+            <div className="mb-1">&nbsp;</div>
             <div>CHOUHAN</div>
             <div>PARK VIEW</div>
           </h1>
