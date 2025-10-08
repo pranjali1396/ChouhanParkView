@@ -84,7 +84,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
       {/* Logo - Top Left */}
       <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
         {/* Desktop Logo with Perfect Square Box */}
-        <div className="hidden md:block border border-white w-24 h-24 flex items-center justify-center" style={{ 
+        <div className="hidden md:block border border-white w-24 h-24 flex items-end justify-center pb-2" style={{ 
           boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
           backdropFilter: 'blur(10px)'
@@ -133,7 +133,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
 
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col px-4 pt-24 pb-16 md:px-8 md:pt-12 md:flex-row md:items-start md:justify-start md:pl-72 md:pb-20">
+      <div className="relative z-10 min-h-screen flex flex-col px-4 pb-16 md:px-8 md:flex-row md:items-start md:justify-start md:pl-72 md:pb-20" style={{ paddingTop: '106px' }}>
         {/* Main Navigation Menu */}
         <div className="flex-1 md:flex-none">
           <motion.div
