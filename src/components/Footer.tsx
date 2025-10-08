@@ -17,8 +17,8 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <h3 className="text-2xl font-bold mb-4">Chouhan Park View</h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Gotham, sans-serif' }}>Chouhan Park View</h3>
+            <p className="text-gray-300 mb-6 leading-relaxed" style={{ fontFamily: 'Gotham, sans-serif' }}>
               The most anticipated masterplanned community in Bhilai. Experience luxury living with world-class amenities and breathtaking views.
             </p>
             <div className="flex space-x-4">
@@ -40,7 +40,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+            <h4 className="text-lg font-semibold mb-4" style={{ fontFamily: 'Gotham, sans-serif' }}>Contact Us</h4>
             <div className="space-y-3">
               <div className="flex items-center">
                 <Phone className="w-5 h-5 text-blue-400 mr-3" />

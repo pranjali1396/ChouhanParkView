@@ -2,6 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Gotham Rounded SSm Font Faces */
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamRndSSm-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamRndSSm-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamRndSSm-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamRndSSm-BookItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamRndSSm-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamRndSSm-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamRndSSm-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamRndSSm-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -34,8 +99,20 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  font-family: 'Inter', sans-serif;
+  font-family: 'Gotham', 'Montserrat', sans-serif;
   overflow-x: hidden;
+}
+
+/* Ensure all text elements use Gotham font */
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label, 
+li, ul, ol, blockquote, caption, th, td, small, strong, em, b, i, 
+.motion-div, .framer-motion, [class*="text-"], [class*="font-"] {
+  font-family: 'Gotham', 'Montserrat', sans-serif !important;
+}
+
+/* Additional coverage for React components */
+* {
+  font-family: 'Gotham', 'Montserrat', sans-serif !important;
 }
 
 /* Custom scrollbar */
@@ -257,4 +334,183 @@ body {
 
 .scroll-text {
   animation: scrollPulse 2s infinite;
+}
+
+/* Auto-scroll animation for amenities */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s linear infinite;
+  display: flex;
+  width: 200%; /* Double width to accommodate duplicates */
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Gallery scroll animations */
+@keyframes scrollGallery {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollGalleryReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-gallery {
+  animation: scrollGallery 25s linear infinite;
+  display: flex;
+  width: 200%;
+}
+
+.animate-scroll-gallery-reverse {
+  animation: scrollGalleryReverse 30s linear infinite;
+  display: flex;
+  width: 200%;
+}
+
+.animate-scroll-gallery:hover,
+.animate-scroll-gallery-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Single gallery scroll animation */
+@keyframes scrollGallerySingle {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-gallery-single {
+  animation: scrollGallerySingle 40s linear infinite;
+  display: flex;
+  width: 200%;
+}
+
+.animate-scroll-gallery-single:hover {
+  animation-play-state: paused;
+}
+
+/* Multi-image gallery scroll animation */
+@keyframes scrollGalleryMulti {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-gallery-multi {
+  animation: scrollGalleryMulti 60s linear infinite;
+  display: flex;
+  width: 200%;
+}
+
+.animate-scroll-gallery-multi:hover {
+  animation-play-state: paused;
+}
+
+/* Slideshow animation - fade transition between images */
+@keyframes slideshow {
+  0%, 95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-slideshow {
+  animation: slideshow 29s linear infinite;
+  display: flex;
+  width: 200%; /* Double width for seamless loop */
+}
+
+.animate-slideshow:hover {
+  animation-play-state: paused;
+}
+
+/* Individual image timing - 1 second each */
+.animate-slideshow img:nth-child(1) { animation-delay: 0s; }
+.animate-slideshow img:nth-child(2) { animation-delay: 1s; }
+.animate-slideshow img:nth-child(3) { animation-delay: 2s; }
+.animate-slideshow img:nth-child(4) { animation-delay: 3s; }
+.animate-slideshow img:nth-child(5) { animation-delay: 4s; }
+.animate-slideshow img:nth-child(6) { animation-delay: 5s; }
+.animate-slideshow img:nth-child(7) { animation-delay: 6s; }
+.animate-slideshow img:nth-child(8) { animation-delay: 7s; }
+.animate-slideshow img:nth-child(9) { animation-delay: 8s; }
+.animate-slideshow img:nth-child(10) { animation-delay: 9s; }
+.animate-slideshow img:nth-child(11) { animation-delay: 10s; }
+.animate-slideshow img:nth-child(12) { animation-delay: 11s; }
+.animate-slideshow img:nth-child(13) { animation-delay: 12s; }
+.animate-slideshow img:nth-child(14) { animation-delay: 13s; }
+.animate-slideshow img:nth-child(15) { animation-delay: 14s; }
+.animate-slideshow img:nth-child(16) { animation-delay: 15s; }
+.animate-slideshow img:nth-child(17) { animation-delay: 16s; }
+.animate-slideshow img:nth-child(18) { animation-delay: 17s; }
+.animate-slideshow img:nth-child(19) { animation-delay: 18s; }
+.animate-slideshow img:nth-child(20) { animation-delay: 19s; }
+.animate-slideshow img:nth-child(21) { animation-delay: 20s; }
+.animate-slideshow img:nth-child(22) { animation-delay: 21s; }
+.animate-slideshow img:nth-child(23) { animation-delay: 22s; }
+.animate-slideshow img:nth-child(24) { animation-delay: 23s; }
+.animate-slideshow img:nth-child(25) { animation-delay: 24s; }
+.animate-slideshow img:nth-child(26) { animation-delay: 25s; }
+.animate-slideshow img:nth-child(27) { animation-delay: 26s; }
+.animate-slideshow img:nth-child(28) { animation-delay: 27s; }
+.animate-slideshow img:nth-child(29) { animation-delay: 28s; }
+
+/* Horizontal sliding gallery animation */
+@keyframes scrollGalleryImages {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-gallery-images {
+  animation: scrollGalleryImages 15s linear infinite;
+  display: flex;
+  width: 200%; /* Double width for seamless loop */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.animate-scroll-gallery-images:hover {
+  animation-play-state: paused;
+}
+
+/* Ensure smooth scrolling for manual navigation */
+.animate-scroll-gallery-images::-webkit-scrollbar {
+  display: none;
+}
+
+.animate-scroll-gallery-images {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

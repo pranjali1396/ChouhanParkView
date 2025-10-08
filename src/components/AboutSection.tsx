@@ -43,10 +43,10 @@ const AboutSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
-            About Onni Group
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Gotham, sans-serif' }}>
+            About Chouhan Group
           </h2>
-          <p className="text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl font-light text-gray-600 max-w-3xl mx-auto" style={{ fontFamily: 'Gotham, sans-serif' }}>
             For over 50 years, Onni Group has been creating exceptional communities that enhance the way people live, work, and play.
           </p>
         </motion.div>

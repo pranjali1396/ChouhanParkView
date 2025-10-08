@@ -89,7 +89,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
           backdropFilter: 'blur(10px)'
         }}>
-          <h1 className="text-white text-base font-bold tracking-widest text-center" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.1em' }}>
+          <h1 className="text-white text-base font-bold tracking-widest text-center" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.1em' }}>
             <div className="mb-3">&nbsp;</div>
             <div>CHOUHAN</div>
             <div>PARK VIEW</div>
@@ -98,7 +98,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
         
         {/* Mobile Logo without Border */}
         <div className="md:hidden">
-          <h1 className="text-white text-xl font-bold tracking-widest" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.1em' }}>
+          <h1 className="text-white text-xl font-bold tracking-widest" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.1em' }}>
             <div>CHOUHAN</div>
             <div>PARK VIEW</div>
           </h1>
@@ -152,7 +152,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="menu-item group block text-white transition-all duration-300 cursor-pointer"
-                style={{ fontFamily: 'Gotham, Arial, sans-serif' }}
+                style={{ fontFamily: 'Gotham, sans-serif' }}
               >
                 <span className="inline-flex items-baseline">
                   <span className="text-white group-hover:text-blue-400 font-light italic mr-4 md:mr-3 transition-colors duration-300 text-base md:text-xs" style={{ fontWeight: '300', fontStyle: 'italic' }}>{item.number}</span>
@@ -172,7 +172,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: navItems.length * 0.1 }}
               className="menu-item group block text-white transition-all duration-300 cursor-pointer mt-2"
-              style={{ fontFamily: 'Gotham, Arial, sans-serif' }}
+              style={{ fontFamily: 'Gotham, sans-serif' }}
             >
               <span className="inline-flex items-baseline">
                 <span className="text-white group-hover:text-blue-400 font-light italic mr-4 md:hidden transition-colors duration-300 text-base md:text-xs" style={{ fontWeight: '300', fontStyle: 'italic' }}>07</span>
@@ -191,10 +191,10 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="hidden md:block mt-6 space-y-1 text-left"
           >
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '11px', letterSpacing: '0.05em' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, sans-serif', fontSize: '11px', letterSpacing: '0.05em' }}>
               9109104005
             </div>
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '11px', letterSpacing: '0.05em' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, sans-serif', fontSize: '11px', letterSpacing: '0.05em' }}>
               CHOUHANHOUSING@GMAIL.COM
             </div>
           </motion.div>
@@ -209,7 +209,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mb-2"
           >
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, sans-serif' }}>
               <div className="font-bold" style={{ fontSize: '24px', letterSpacing: '0.05em' }}>CHOUHAN</div>
               <div className="font-light" style={{ fontSize: '16px', letterSpacing: '0.15em' }}>GROUP</div>
             </div>
@@ -222,7 +222,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mb-2"
           >
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
               <span className="font-bold" style={{ color: '#5dade2' }}>EN</span>
               <span className="mx-2 text-white/40">|</span>
               <span>हिंदी</span>
@@ -236,10 +236,10 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="space-y-0.5 mb-2"
           >
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '16px', letterSpacing: '0.05em' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, sans-serif', fontSize: '16px', letterSpacing: '0.05em' }}>
               9109104005
             </div>
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, sans-serif', fontSize: '14px', letterSpacing: '0.05em' }}>
               CHOUHANHOUSING@GMAIL.COM
             </div>
           </motion.div>
@@ -250,7 +250,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
             className="text-white mb-2 ml-2"
-            style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '9px', lineHeight: '1.3' }}
+            style={{ fontFamily: 'Gotham, sans-serif', fontSize: '9px', lineHeight: '1.3' }}
           >
             <p className="mb-1">Rendering is artist&apos;s interpretation only. Please speak with a Chouhan Representative for more details. E.&O.E.</p>
             <p>
@@ -288,7 +288,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-center"
           >
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, sans-serif' }}>
               <div className="font-bold" style={{ fontSize: '18px', letterSpacing: '0.05em' }}>CHOUHAN</div>
               <div className="font-light" style={{ fontSize: '11px', letterSpacing: '0.15em' }}>GROUP</div>
             </div>
@@ -301,7 +301,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-center"
           >
-            <div className="text-white" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '11px', letterSpacing: '0.05em' }}>
+            <div className="text-white" style={{ fontFamily: 'Gotham, sans-serif', fontSize: '11px', letterSpacing: '0.05em' }}>
               <span className="font-bold" style={{ color: '#5dade2' }}>EN</span>
               <span className="mx-1.5 text-white/40">|</span>
               <span>हिंदी</span>
@@ -314,7 +314,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
             className="text-center text-white"
-            style={{ fontFamily: 'Gotham, Arial, sans-serif', fontSize: '9px', lineHeight: '1.5', maxWidth: '200px' }}
+            style={{ fontFamily: 'Gotham, sans-serif', fontSize: '9px', lineHeight: '1.5', maxWidth: '200px' }}
           >
             <p className="mb-1">Rendering is artist&apos;s interpretation only. Please speak with a Chouhan Representative for more details. E.&O.E.</p>
             <p>

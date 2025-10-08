@@ -13,58 +13,47 @@ const TransitPage = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-4 sm:mb-5 md:mb-6 lg:mb-7"
+          className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 pt-8 sm:pt-10 md:pt-12"
         >
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight" style={{ fontFamily: 'Arial, sans-serif' }}>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight" style={{ fontFamily: 'Gotham, sans-serif' }}>
             <span className="block">SEAMLESS</span>
             <span className="block">TRANSIT</span>
             <span className="block">CONNECTIVITY</span>
           </h1>
         </motion.div>
 
-        {/* Description Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto text-center mb-5 sm:mb-6 md:mb-7 lg:mb-8 px-4 sm:px-6"
-        >
-          <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed" style={{ fontFamily: 'Arial, sans-serif' }}>
-            Connected to the entire Lower Mainland with multiple transit options right at your doorstep.
-          </p>
-        </motion.div>
 
         {/* Transit Options */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5"
+          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mb-8 sm:mb-10 md:mb-12 lg:mb-14 px-4 sm:px-6"
         >
           {[
             {
               icon: Train,
-              title: "Skytrain Station",
-              description: "Metrotown Station just steps away, connecting you to downtown Vancouver and beyond.",
-              time: "2 min walk"
+              title: "Railway Station",
+              description: "Bhilai Railway Station and Durg Junction provide excellent connectivity to major cities across India.",
+              time: "4 km"
             },
             {
               icon: Bus,
               title: "Bus Routes",
-              description: "Multiple bus routes serving all major destinations in Bhilai and surrounding areas.",
-              time: "1 min walk"
+              description: "Multiple bus routes serving all major destinations in Bhilai, Durg, and surrounding areas.",
+              time: "2 km"
             },
             {
               icon: Bike,
-              title: "Bike Lanes",
-              description: "Dedicated bike lanes and bike-sharing programs for eco-friendly commuting.",
+              title: "Local Transport",
+              description: "Auto-rickshaws, cycle-rickshaws, and local transport options for convenient local commuting.",
               time: "On-site"
             },
             {
               icon: Car,
               title: "Highway Access",
-              description: "Quick access to Highway 1 and major arterial roads for car commuting.",
-              time: "5 min drive"
+              description: "Quick access to NH-53 and major arterial roads connecting to Raipur, Durg, and other cities.",
+              time: "2 km"
             }
           ].map((option, index) => {
             const IconComponent = option.icon;
@@ -75,9 +64,9 @@ const TransitPage = () => {
                     <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{option.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2" style={{ fontFamily: 'Gotham, sans-serif' }}>{option.title}</h3>
                 <p className="text-blue-400 text-xs sm:text-sm font-medium mb-3">{option.time}</p>
-                <p className="text-gray-300 leading-relaxed text-xs sm:text-sm">{option.description}</p>
+                <p className="text-gray-300 leading-relaxed text-xs sm:text-sm" style={{ fontFamily: 'Gotham, sans-serif' }}>{option.description}</p>
               </div>
             );
           })}
@@ -88,25 +77,27 @@ const TransitPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-5 sm:mt-6 md:mt-7 lg:mt-8"
+          className="max-w-6xl mx-auto mb-8 sm:mb-10 md:mb-12 lg:mb-14 px-4 sm:px-6"
         >
-          <div className="bg-gray-700 rounded-2xl p-3 sm:p-4 md:p-6">
-            <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-4 sm:mb-5">Transit Times</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-              <div className="space-y-4">
-                <h4 className="text-base sm:text-lg font-semibold text-white">To Downtown Vancouver</h4>
-                <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                  <li>• Skytrain: 25 minutes</li>
-                  <li>• Bus: 35 minutes</li>
-                  <li>• Car: 20 minutes</li>
+          <div className="bg-gray-700 rounded-2xl p-6 sm:p-8">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-6 sm:mb-8" style={{ fontFamily: 'Gotham, sans-serif' }}>
+              TRANSIT TIMES
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+              <div className="space-y-4 text-center">
+                <h4 className="text-lg sm:text-xl font-semibold text-white" style={{ fontFamily: 'Gotham, sans-serif' }}>To Raipur</h4>
+                <ul className="space-y-2 text-gray-300 text-sm sm:text-base" style={{ fontFamily: 'Gotham, sans-serif' }}>
+                  <li>• By Road: 25 minutes</li>
+                  <li>• By Bus: 35 minutes</li>
+                  <li>• By Train: 20 minutes</li>
                 </ul>
               </div>
-              <div className="space-y-4">
-                <h4 className="text-base sm:text-lg font-semibold text-white">To Airport</h4>
-                <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                  <li>• Skytrain: 45 minutes</li>
-                  <li>• Car: 30 minutes</li>
-                  <li>• Taxi: 25 minutes</li>
+              <div className="space-y-4 text-center">
+                <h4 className="text-lg sm:text-xl font-semibold text-white" style={{ fontFamily: 'Gotham, sans-serif' }}>To Durg</h4>
+                <ul className="space-y-2 text-gray-300 text-sm sm:text-base" style={{ fontFamily: 'Gotham, sans-serif' }}>
+                  <li>• By Road: 15 minutes</li>
+                  <li>• By Bus: 20 minutes</li>
+                  <li>• By Train: 10 minutes</li>
                 </ul>
               </div>
             </div>

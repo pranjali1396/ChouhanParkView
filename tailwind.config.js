@@ -11,6 +11,12 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'gotham': ['Gotham', 'sans-serif'],
+        'sans': ['Gotham', 'Montserrat', 'sans-serif'],
+        'body': ['Gotham', 'sans-serif'],
+        'heading': ['Gotham', 'sans-serif'],
+      },
     },
   },
   plugins: [],

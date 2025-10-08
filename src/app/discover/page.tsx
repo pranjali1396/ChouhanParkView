@@ -98,7 +98,7 @@ const DiscoverPage = () => {
           <div className="relative z-10 flex flex-col justify-between h-full">
             {/* DISCOVER Text */}
             <div className="pt-32 px-8">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl" style={{ fontFamily: 'Arial, sans-serif' }}>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl" style={{ fontFamily: 'Gotham, sans-serif' }}>
                 DISCOVER
               </h1>
             </div>
@@ -148,22 +148,17 @@ const DiscoverPage = () => {
         {isSticky && <div className="h-16"></div>}
         
 
-        {/* Main Heading */}
-        <div className="main-heading-section text-center py-6 bg-gray-800">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight" style={{ fontFamily: 'Arial, sans-serif' }}>
-            <span className="block">MORE</span>
-            <span className="block">{activeTab}</span>
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-white mt-3 max-w-md mx-auto px-2" style={{ fontFamily: 'Arial, sans-serif' }}>
-            {activeTab === 'VISION' && "Chouhan Park View is a magnificent location offering homes, shops, dining, and office space within the Bhilai community."}
-            {activeTab === 'LOCATION' && "Strategically positioned in the heart of Bhilai, offering unparalleled access to everything the city has to offer."}
-            {activeTab === 'TRANSIT' && "Connected to the entire Lower Mainland with multiple transit options right at your doorstep."}
-            {activeTab === 'AMENITIES' && "With over 75,000 square feet of life-enriching amenities, it's not hard to"}
-          </p>
-        </div>
+        {/* Main Heading - Only show for tabs that don't have their own headings */}
+        {activeTab !== 'VISION' && activeTab !== 'LOCATION' && activeTab !== 'TRANSIT' && activeTab !== 'AMENITIES' && (
+          <div className="main-heading-section text-center py-6 bg-gray-800">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight" style={{ fontFamily: 'Gotham, sans-serif' }}>
+              <span className="block">{activeTab}</span>
+            </h2>
+          </div>
+        )}
 
         {/* Tab Content */}
-        <div className="max-w-xl mx-auto px-2 sm:px-6 lg:px-8 py-8 bg-gray-800">
+        <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 py-8 bg-gray-800">
           {activeTab === 'VISION' && <VisionPage />}
           {activeTab === 'LOCATION' && <LocationPage />}
           {activeTab === 'TRANSIT' && <TransitPage />}

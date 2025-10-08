@@ -112,7 +112,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-6"
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-left" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontWeight: '700' }}>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-left" style={{ fontFamily: 'Gotham, sans-serif', fontWeight: '700' }}>
             MOVE IN TODAY
           </h1>
         </motion.div>
@@ -123,7 +123,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mb-10"
         >
-          <p className="text-base md:text-lg font-light leading-relaxed text-left" style={{ fontFamily: 'Gotham, Arial, sans-serif', fontWeight: '300' }}>
+          <p className="text-base md:text-lg font-light leading-relaxed text-left" style={{ fontFamily: 'Gotham, sans-serif', fontWeight: '300' }}>
             The most anticipated masterplanned community<br />
             in Bhilai. Final Homes in Phase 1 Now Selling!
           </p>
@@ -135,7 +135,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-left"
         >
-          <button className="bg-white text-black px-10 py-4 text-xs md:text-sm font-bold tracking-wider hover:bg-gray-100 transition-all duration-300" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.15em' }}>
+          <button className="bg-white text-black px-10 py-4 text-xs md:text-sm font-bold tracking-wider hover:bg-gray-100 transition-all duration-300" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.15em' }}>
             BOOK AN APPOINTMENT
           </button>
         </motion.div>
@@ -148,10 +148,10 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          <div className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.05em' }}>
+          <div className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.05em' }}>
             MORE
           </div>
-          <div className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Gotham, Arial, sans-serif', letterSpacing: '0.05em' }}>
+          <div className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Gotham, sans-serif', letterSpacing: '0.05em' }}>
             PLAY
           </div>
         </motion.div>

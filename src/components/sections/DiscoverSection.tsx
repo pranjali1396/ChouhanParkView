@@ -25,10 +25,10 @@ const DiscoverSection = () => {
           viewport={{ once: true }}
           className="text-center max-w-4xl"
         >
-          <h2 className="text-6xl md:text-7xl font-bold mb-6 animate-in" style={{ fontFamily: 'Gotham, Arial, sans-serif' }}>
+          <h2 className="text-6xl md:text-7xl font-bold mb-6 animate-in" style={{ fontFamily: 'Gotham, sans-serif' }}>
             DISCOVER
           </h2>
-          <p className="text-xl md:text-2xl font-light leading-relaxed animate-in" style={{ fontFamily: 'Gotham, Arial, sans-serif' }}>
+          <p className="text-xl md:text-2xl font-light leading-relaxed animate-in" style={{ fontFamily: 'Gotham, sans-serif' }}>
             Experience luxury living in the heart of the city. 
             Chouhan Park View offers unparalleled elegance and comfort.
           </p>
