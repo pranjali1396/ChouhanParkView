@@ -14,8 +14,8 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
   
   const navItems = [
     { number: '01', name: 'Discover', href: '/discover' },
-    { number: '02', name: 'Tower Collection', href: '#tower' },
-    { number: '03', name: 'Penthouse Collection', href: '#penthouse' },
+    { number: '02', name: 'Flat Collection', href: '/flat' },
+    { number: '03', name: 'Bungalow Collection', href: '/bungalow' },
     { number: '04', name: 'Commercial', href: '#commercial' },
     { number: '05', name: 'Gallery', href: '#gallery' },
     { number: '06', name: 'About Chouhan', href: '#about' },
@@ -26,10 +26,10 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     
-    // Handle navigation to discover page
-    if (href === '/discover') {
+    // Handle navigation to pages that exist
+    if (href === '/discover' || href === '/flat' || href === '/bungalow') {
       // Navigate immediately without closing menu first
-      router.push('/discover');
+      router.push(href);
       return;
     }
     
@@ -59,7 +59,7 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-black/80 backdrop-blur-sm relative overflow-hidden" style={{ boxShadow: 'none', filter: 'none' }}>
+    <div className="fixed inset-0 min-h-screen bg-black/80 backdrop-blur-sm z-50 overflow-hidden" style={{ boxShadow: 'none', filter: 'none' }}>
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
@@ -122,7 +122,12 @@ const NavigationMenu = ({ onClose }: NavigationMenuProps) => {
           
           {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={() => {
+            // Close menu with proper animation instead of navigating away
+            if (onClose) {
+              onClose();
+            }
+          }}
           className="text-white hover:text-gray-300 transition-colors duration-300 p-2 md:p-3"
           aria-label="Close menu"
         >

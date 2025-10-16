@@ -1,13 +1,15 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import gsap from 'gsap';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import NavigationMenu from '@/components/NavigationMenu';
 import ChatWidget from '@/components/ChatWidget';
 
-export default function Home() {
+function HomeContent() {
+  const searchParams = useSearchParams();
   const [showMenu, setShowMenu] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -41,6 +43,14 @@ export default function Home() {
       }
     };
   }, []);
+
+  // Check for menu parameter and auto-open menu
+  useEffect(() => {
+    if (searchParams.get('menu') === 'true' && isInitialized && !isTransitioning) {
+      console.log('Auto-opening menu from URL parameter');
+      // We'll call handleScrollToMenu after it's defined
+    }
+  }, [searchParams, isInitialized, isTransitioning]);
 
   const handleScrollToMenu = useCallback((openedViaButton = false) => {
     if (!isInitialized || isTransitioning || !mainPageRef.current || !menuPageRef.current) return;
@@ -83,6 +93,14 @@ export default function Home() {
       transformOrigin: 'top center'
     });
   }, [isInitialized, isTransitioning]);
+
+  // Handle menu parameter after functions are defined
+  useEffect(() => {
+    if (searchParams.get('menu') === 'true' && isInitialized && !isTransitioning && !showMenu) {
+      console.log('Auto-opening menu from URL parameter');
+      handleScrollToMenu(false);
+    }
+  }, [searchParams, isInitialized, isTransitioning, showMenu, handleScrollToMenu]);
 
   useEffect(() => {
     let lastScrollTime = 0;
@@ -183,5 +201,13 @@ export default function Home() {
 
       {/* Removed scroll down button - menu can only be opened via MENU button */}
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }
